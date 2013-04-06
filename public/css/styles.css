@@ -36,6 +36,33 @@
 #up:active, #detailed-view:active{
     opacity: 0.8;
 }
+.topBar{
+    background: url('/images/bg.png') repeat-x;
+    position: relative;
+    z-index: 9999999;
+    height: 47px;
+}
+
+img#logo{
+    padding-top: 8px;
+    padding-bottom: 5px;
+    margin-left: 8px;
+    margin-top: -48px;
+    position: relative;
+    z-index: 99999999;
+}
+
+.content-wrapper{
+    margin-top: -47px;
+}
+
+.button-wrapper{
+    margin-left: 88px;
+    position: relative;
+    z-index: 999999999;
+}
+
+
 
 
 
