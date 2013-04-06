@@ -83,15 +83,15 @@ body {
 }
 #container{
 	background: none repeat scroll 0 0 #FFFFFF;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 2;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
 	top: 53px;
 	border: medium none;
-    min-width: 960px;
-    width: 100%;
-    position: relative;
-  left: -80px;
+  min-width: 960px;
+  width: 100%;
+  position: relative;
+  left: -56px ;
 }
 
 #lsInfoView{
@@ -171,8 +171,8 @@ li.conceptCard{
 	border: none;
 	background-color: rgba(0,0,0,0.3);
 	z-index:400;
-	width: 60px;
-	height: 60px;
+	width: 30px;
+	height: 30px;
 	cursor: pointer;
 }
 #up{
