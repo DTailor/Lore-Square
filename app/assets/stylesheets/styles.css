@@ -1,0 +1,239 @@
+.sign-in {
+    padding: 35px 0px;
+
+    border-radius: 5px;
+
+    background-color: #7e5769;
+    background-image: url('img/signin-bg.jpg');
+    background-position: 50% top;
+    background-size: cover;
+
+    box-shadow: inset 0 0 4px 0 rgba(0,0,0,0.2);
+}
+.sign-in .popup {
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.3);
+    box-shadow: 
+        inset 0 0 0 1px rgba(255,255,255,0.16),
+        0 3px 15px -1px rgba(0,0,0,0.5);
+}
+.sign-in .popup-title {
+    margin: 1px;
+    padding: 14px;
+
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-radius: 7px 7px 0px 0px;
+
+    background-color: rgba(0,0,0,0.1);
+
+    box-shadow: 0 1px 0 0 rgba(255,255,255,0.1);
+
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+}
+.sign-in .close-link {
+    width: 20px;
+    height: 20px;
+    float: right;
+
+    background-image: url('img/signin-x.png');
+    background-position: 50% 50%;
+    background-size: 13px no-repeatpx;
+    background-repeat: no-repeat;
+
+    opacity: 0.5;
+    transition: 
+        opacity 150ms ease-in-out,
+        undefined undefined undefined,
+        undefined undefined undefined;
+
+    text-decoration: none;
+}
+.sign-in .close-link:hover {
+    opacity: 1;
+}
+.sign-in .close-link span {
+    display: none;
+}
+.sign-in .sign-in-form {
+    padding: 18px;
+    border-right: 1px solid rgba(0,0,0,0.15);
+    box-shadow: 1px 0 0 0 rgba(255,255,255,0.1);
+}
+.sign-in .form-field {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 13px 15px 13px 40px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+
+    background-color: rgba(0,0,0,0.15);
+    background-repeat: no-repeat;
+
+    box-shadow: inset 0 0 15px -2px rgba(0,0,0,0.3);
+    transition: 
+        box-shadow 150ms ease-in-out,
+        border 150ms ease-in-out,
+        background-color 150ms ease-in-out;
+
+    font-family: 'Varela', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-style: normal;
+}
+.sign-in .form-field:focus {
+    border: 1px solid rgba(201,66,116,0.7);
+    background-color: rgba(0,0,0,0.3);
+    box-shadow: 
+        inset 0 1px 0 0 rgba(255,255,255,0),
+        inset 0 3px 10px -5px rgba(0,0,0,0.4),
+        0 0 16px 0 rgba(201,66,116,0.6);
+}
+.sign-in .form-field:focus {
+    border: 1px solid rgba(201,66,116,0.7);
+    background-color: rgba(0,0,0,0.3);
+    box-shadow: 
+        inset 0 1px 0 0 rgba(255,255,255,0),
+        inset 0 3px 10px -5px rgba(0,0,0,0.4),
+        0 0 16px 0 rgba(201,66,116,0.6);
+}
+.sign-in .form-field.username {
+    background-image: url('img/signin-user.png');
+    background-position: 15px 48%;
+    background-size: 15px auto;
+}
+.sign-in .form-field.password {
+    background-image: url('img/signin-password.png');
+    background-position: 17px 46%;
+    background-size: 11px auto;
+}
+.sign-in .forgot-password {
+    display: block;
+    padding-bottom: 10px;
+
+    transition: 
+        color 150ms ease-in-out,
+        undefined undefined undefined,
+        undefined undefined undefined;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    text-decoration: none;
+}
+.sign-in .forgot-password:hover {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+}
+.sign-in .external-auth {
+    padding: 40px 18px 18px 10px;
+}
+.sign-in .external-auth .intro {
+    font-family: Georgia, serif;
+    color: #c7c7c7;
+    font-style: italic;
+    text-align: center;
+}
+.sign-in .button {
+    display: block;
+    margin: 16px 0px 0px;
+    padding: 15px;
+
+    border-radius: 3px;
+
+    background-color: #af426b;
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.4), transparent);
+
+    box-shadow: 
+        inset 0 0 0 1px rgba(255,255,255,0.1),
+        inset 0 4px 7px -4px rgba(255,255,255,0.7),
+        inset 0 56px 47px -41px rgba(255,255,255,0),
+        0 0 8px -1px rgba(0,0,0,0.5);
+    transition: 
+        box-shadow 150ms ease-in-out,
+        undefined undefined undefined,
+        undefined undefined undefined;
+
+    color: rgba(255,255,255,0.9);
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.7);
+}
+.sign-in .button:hover {
+    box-shadow: 
+        inset 0 0 2px 1px rgba(255,255,255,0.15),
+        inset 0 4px 7px -4px rgba(255,255,255,0.7),
+        inset 0 56px 47px -41px rgba(255,255,255,0.2),
+        0 0 8px -1px rgba(0,0,0,0.85);
+}
+.sign-in .button.social {
+    padding-left: 44px;
+    background-repeat: no-repeat, no-repeat;
+    text-align: left;
+}
+.sign-in .button.social.facebook {
+    background-color: #4364aa;
+    background-image: 
+        url('img/signin-fb.png'),
+        linear-gradient(0deg, rgba(0,0,0,0.4), transparent);
+    background-position: 18px 50%, left top;
+    background-size: 12px auto, auto auto;
+}
+.sign-in .button.social.twitter {
+    background-color: #279bce;
+    background-image: 
+        url('img/signin-twitter.png'),
+        linear-gradient(0deg, rgba(0,0,0,0.4), transparent);
+    background-position: 12px 50%, left top;
+    background-size: 24px auto, auto auto;
+}
+@media (max-width: 979px) and (min-width: 768px) {
+    .sign-in .popup {
+        margin-right: -62px;
+        margin-left: -62px;
+    }
+    .sign-in .button.social {
+        padding-left: 35px;
+        font-size: 13px;
+    }
+    .sign-in .button.social.facebook {
+        background-position: 14px 50%, left top;
+        background-size: 9px auto, auto auto;
+    }
+    .sign-in .button.social.twitter {
+        background-position: 10px 50%, left top;
+        background-size: 18px auto, auto auto;
+    }
+}
+@media (max-width: 767px) {
+    .sign-in .external-auth {
+        text-align: center;
+    }
+    .sign-in {
+        padding: 35px 77px;
+    }
+    .sign-in .sign-in-form {
+        padding: 18px;
+        border-right: 1px solid rgba(0,0,0,0);
+        border-bottom: 1px solid rgba(0,0,0,0.15);
+        box-shadow: 0 1px 0 0 rgba(255,255,255,0.1);
+    }
+    .sign-in .external-auth {
+        padding: 18px 18px 18px 10px;
+    }
+    .sign-in .button.social {
+        display: inline-block;
+        width: 131px;
+        margin-left: 10px;
+    }
+}
+@media (max-width: 480px) {
+    .sign-in {
+        padding: 21px 22px;
+    }
+}
