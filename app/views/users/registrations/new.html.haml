@@ -1,7 +1,7 @@
-.sign-in
+.sign-in{:style => "height: 640px; margin: 10px 10px 10px 10px;"}
   .row
     .span6.offset3
-      .popup
+      .popup{:style => "margin-left: 50px; margin-right: 50px;"}
         .popup-title
           %a.close-link{:href => "#"}
             %span Close
@@ -14,13 +14,12 @@
                   = f.text_field :email, :autofocus => true, :class => "form-field username", :placeholder => "E-mail"
                   = f.password_field :password, :class => "form-field password", :placeholder => "Password"
                   = f.password_field :password_confirmation, :class => "form-field password", :placeholder => "Password Confirmation"
-                  %a.button.sign-in{:href => "#"} Sign Un
+                  %a.button.sign-in{:href => "#"} Sign Up
                   - f.submit "Sign up"
             .span5
               .external-auth.clearfix
                 .intro Or log in with:
-                %a.button.social.facebook{:href => "#"} Facebook
-                %a.button.social.twitter.wf-affected{:href => "#"} Twitter
+                %a.button.social.facebook{:href => user_omniauth_authorize_path(:facebook)} Facebook
 
 :javascript
   $('.button.sign-in').click(function(){
