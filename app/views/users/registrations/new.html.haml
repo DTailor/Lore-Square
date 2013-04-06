@@ -1,0 +1,46 @@
+/ %h2 Sign up
+/ 
+/   = devise_error_messages!
+/   %div
+/     = f.label :email
+/     %br/
+/     = f.email_field :email, :autofocus => true
+/   %div
+/     = f.label :password
+/     %br/
+/     = f.password_field :password
+/   %div
+/     = f.label :password_confirmation
+/     %br/
+/     = f.password_field :password_confirmation
+/   %div= f.submit "Sign up"
+/ = render "devise/shared/links"
+
+.sign-in
+  .row
+    .span6.offset3
+      .popup
+        .popup-title
+          %a.close-link{:href => "#"}
+            %span Close
+          Sign Up
+        .body
+          .row-fluid
+            .span7
+              = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+                .sign-in-form
+                  = f.text_field :email, :autofocus => true, :class => "form-field username", :placeholder => "E-mail"
+                  = f.password_field :password, :class => "form-field password", :placeholder => "Password"
+                  = f.password_field :password_confirmation, :class => "form-field password", :placeholder => "Password Confirmation"
+                  %a.button.sign-in{:href => "#"} Sign Un
+                  - f.submit "Sign up"
+            .span5
+              .external-auth.clearfix
+                .intro Or log in with:
+                %a.button.social.facebook{:href => "#"} Facebook
+                %a.button.social.twitter.wf-affected{:href => "#"} Twitter
+
+:javascript
+  $('.button.sign-in').click(function(){
+    $('form').submit();
+  })
