@@ -1,7 +1,7 @@
-.sign-in
+.sign-in{:style => "height: 640px; margin: 10px 10px 10px 10px;"}
   .row
     .span6.offset3
-      .popup
+      .popup{:style => "margin-left: 50px; margin-right: 50px;"}
         .popup-title
           %a.close-link{:href => "#"}
             %span Close
@@ -12,7 +12,6 @@
               = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
                 .sign-in-form
                   = f.text_field :email, :autofocus => true, :class => "form-field username", :placeholder => "E-mail"
-                  %br
                   = f.password_field :password, :class => "form-field password", :placeholder => "Password"
                   %a.forgot-password{:href => "#"} Forgot your username or password?
                   %a.button.sign-in{:href => "#"} Sign In
