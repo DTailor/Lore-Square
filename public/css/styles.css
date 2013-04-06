@@ -62,6 +62,42 @@ img#logo{
     z-index: 999999999;
 }
 
+#profile-pic{
+    position: relative;
+    top: 60px;
+    left: 20px;
+}
+#profile-name{
+    position: relative;
+    left: 145px;
+    top: -40px;
+    width: 106px;
+}
+
+#profile-progress {
+    position: relative;
+    top: -17px;
+    left: 127px;
+
+}
+
+#progress-bar{
+    overflow: hidden;
+    display: inline-block;
+    height: 30px;               /* Set height of bar */
+    background: rgb(182, 175, 175);          /* Set background color or image */
+    width: 106px;               /* Set width of bar */
+    left: 133px;
+    position: relative;
+    top: -10px;
+}
+
+#progress-bar div{
+    float:left;
+    height:30px;                /* For a horizontal bar, set fixed height, for vertical bar, set fixed width */
+    background:rgb(64, 91, 116);;         /* Set background color or image of current bar */
+}
+
 
 
 

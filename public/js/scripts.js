@@ -372,4 +372,9 @@ $chart
 ;
 $(document).ready(function() {
   $('#detailed-view').sidr();
+
+  $(document).ready(function() {
+    $('#progress-bar').simpleProgressBar();
+	});
+
 });
