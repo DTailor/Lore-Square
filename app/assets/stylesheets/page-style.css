@@ -92,16 +92,6 @@ body {
     width: 100%;
 }
 
-#lsView{
-    bottom: 0;
-    left: 520px;
-    position: fixed;
-    right: 0;
-    top: 50px;
-    z-index: 1;
-
-}
-
 #lsInfoView{
 	border-color: #1871e3;
 	border-image: none;
@@ -207,11 +197,6 @@ li.conceptCard{
 
 svg{
 	position:absolute;
-	transform: translate(-520px, 0px);
-	-moz-transform: translate(-520px, 0px);
-	-o-transform: translate(-520px, 0px);
-	-webkit-transform: translate(-520px, 0px);
-	-moz-transition: transform 0s ease;  
 }
 
 h1 {

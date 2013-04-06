@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem "therubyracer"
 gem "less-rails"
