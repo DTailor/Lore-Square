@@ -1,5 +1,13 @@
 LoreSquare::Application.routes.draw do
-  devise_for :users, :controllers => { :sessions => "users/sessions", :registrations => "users/registrations" }
+  devise_for :users, :controllers => { 
+    :sessions => "users/sessions", 
+    :registrations => "users/registrations",
+    :omniauth_callbacks => "users/omniauth_callbacks"
+  }
+
+  devise_scope :user do
+    match '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
   namespace :pages do
     root :to => "pages#index"

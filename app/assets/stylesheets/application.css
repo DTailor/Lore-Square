@@ -13,4 +13,5 @@
  *= require_tree .
  *= require page-style.css
  *= require chart-style.css
+ *= require twitter/bootstrap
  */

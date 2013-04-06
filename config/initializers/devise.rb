@@ -1,18 +1,12 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  # ==> Mailer Configuration
-  # Configure the e-mail address which will be shown in Devise::Mailer,
-  # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
-  # Configure the class responsible to send e-mails.
-  # config.mailer = "Devise::Mailer"
+  config.mailer_sender = "admin@loresquare.com"
 
-  # ==> ORM configuration
-  # Load and configure the ORM. Supports :active_record (default) and
-  # :mongoid (bson_ext recommended) by default. Other ORMs may be
-  # available as additional gems.
+  require "omniauth-facebook"
+  config.omniauth :facebook, '119926891536068', '7e219c801e7906423a2c6dbae634415a'
+
   require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
@@ -122,7 +116,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length. Default is 8..128.
-  config.password_length = 8..128
+  config.password_length = 6..128
 
   # Email regex used to validate email formats. It simply asserts that
   # an one (and only one) @ exists in the given string. This is mainly
