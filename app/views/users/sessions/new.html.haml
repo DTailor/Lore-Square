@@ -19,7 +19,7 @@
             .span5
               .external-auth.clearfix
                 .intro Or log in with:
-                %a.button.social.facebook{:href => "#"} Facebook
+                %a.button.social.facebook{:href => user_omniauth_authorize_path(:facebook)} Facebook
 
 :javascript
   $('.button.sign-in').click(function(){
