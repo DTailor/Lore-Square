@@ -23,7 +23,7 @@ var dates;
 var headerHeight = 0;
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
     width = getScreenWidth(),
-    height = window.innerHeight-48,
+    height = getAvailScreenHeight()-133,
     formatNumber = d3.format(",d"),
     transitioning;
 
@@ -136,7 +136,7 @@ precG = g1;
 
     g.filter(function(d) { return d.children; })
         .classed("children", true)
-        .on("dblclick", transition);
+        .on("click", transition);
 
     g.selectAll(".child")
         .data(function(d) { return d.children || [d]; })
@@ -176,8 +176,8 @@ precG = g1;
 			  transitioning = true;
 		
 			  var g2 = display(d),
-				  t1 = g1.transition().duration(750),
-				  t2 = g2.transition().duration(750);
+				  t1 = g1.transition().duration(500),
+				  t2 = g2.transition().duration(500);
 				
 				
 				precG = g1;
@@ -250,7 +250,7 @@ precG = g1;
 	
 	function filterFunction(element, index, array)
 	{
-		return element.textContent == "Data management systems";
+		return element.textContent == "Information systedf";
 	}
 	
 	function OnEnd(d){
@@ -305,14 +305,6 @@ $chart
 
 				return false;
 			})
-			.on('mouseup', function(e){
-				svgStartTop = svgStartTopOffset;
-				svgStartLeft = svgStartLeftOffset;
-
-				$("rect").css('cursor',"");	
-				$(window).off('mousemove');
-				return false;
-			});
 		})
 		.on('mouseleave', function(){
 			$(window).off('mousemove');
