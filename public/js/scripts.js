@@ -1,5 +1,5 @@
 function getMaxScreenHeight(){
-	return  window.screen.height - (window.outerHeight-window.innerHeight) - 53;
+	return  window.screen.height - (window.outerHeight-window.innerHeight) - 56;
 }
 
 function getScreenWidth() {
@@ -20,10 +20,10 @@ function getClientHeight() {
 
 
 var dates;
-var headerHeight = 50;
+var headerHeight = 0;
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
     width = getScreenWidth(),
-    height = getAvailScreenHeight(),
+    height = window.innerHeight-48,
     formatNumber = d3.format(",d"),
     transitioning;
 
@@ -47,7 +47,6 @@ var svg = d3.select("#chart").append("svg")
     .style("margin-left", -margin.left + "px")
     .style("margin.right", -margin.right + "px")
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
     .style("shape-rendering", "crispEdges");
 
 
@@ -300,54 +299,10 @@ $chart
 				cursorStartY = e.clientY + window.scrollY;
 				cursorStartX = e.clientX + window.scrollX;
 				
-				if(!svgStartLeft) svgStartLeft = -8;
+				if(!svgStartLeft) svgStartLeft = 0;
 				if(!svgStartTop) svgStartTop = 0;
 				
-				/*Drag go*/
-				$(window).on('mousemove', function(e) {
-					$("rect").css('cursor',"move");			   
-					$svg.css('transition','transform 0s ease');
-					var x, y;
-					
-					x = e.clientX + window.scrollX;
-    				y = e.clientY + window.scrollY;
-					
-					svgStartLeftOffset = svgStartLeft + x - cursorStartX;
-					svgStartTopOffset = svgStartTop + y - cursorStartY;
-					  
-					  if(Math.abs(svgStartTopOffset) < $svg.height()- getClientHeight() + headerHeight &&
-							svgStartTopOffset < 0 &&
-							svgStartLeftOffset < 0 &&
-							Math.abs(svgStartLeftOffset) < $svg.width()- getClientWidth() + 0)
-					  {
 
-						  $svg.css('transform','translate('+ svgStartLeftOffset +'px, '+ svgStartTopOffset +'px)');
-
-					  }
-					  else{
-							if(svgStartTopOffset >= 0 ) 
-							{
-							  svgStartTopOffset = 0;
-						  	}
-						  	else if(Math.abs(svgStartTopOffset) > $svg.height()- getClientHeight() + headerHeight)
-						  	{
-						  		svgStartTopOffset = -1.0* ($svg.height()- getClientHeight() + headerHeight);
-							}
-						  	
-							if(svgStartLeftOffset > 0)
-							{
-								svgStartLeftOffset = 0; 
-							}
-							else if(Math.abs(svgStartLeftOffset) > $svg.width()- getClientWidth() + 0)
-							{
-								svgStartLeftOffset = -1.0*($svg.width()- getClientWidth() + 0);
-							}
-
-							$svg.css('transform','translate('+ svgStartLeftOffset +'px, '+ svgStartTopOffset +'px)');
-					  }
-					  
-					return false;
-				});
 				return false;
 			})
 			.on('mouseup', function(e){

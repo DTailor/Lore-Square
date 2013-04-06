@@ -1,14 +1,11 @@
 #up{
     background: url('/images/up-icon-new.png') no-repeat;
-    float: left;
     left: 12px;
-    opacity: 0.3;
+    opacity: 0.7;
     width: 30px;
     height: 30px;
     z-index: 10;
     display: inline-block;
-
-
 }
 
 
@@ -21,7 +18,7 @@
     position: relative;
     top: 4px;
     left: 4px;
-    opacity: 0.3;
+    opacity: 0.7;
     z-index: 10;
 
 }
@@ -34,8 +31,9 @@
 }
 
 #up:active, #detailed-view:active{
-    opacity: 0.8;
+    opacity: 1;
 }
+
 .topBar{
     background: url('/images/bg.png') repeat-x;
     position: relative;
@@ -44,22 +42,21 @@
 }
 
 img#logo{
-    padding-top: 8px;
-    padding-bottom: 5px;
-    margin-left: 8px;
-    margin-top: -48px;
-    position: relative;
+    position: fixed;
     z-index: 99999999;
+    bottom: 0;
+    margin-left: 10px;
+    opacity: 0.7;
 }
 
 .content-wrapper{
-    margin-top: -47px;
 }
 
 .button-wrapper{
-    margin-left: 88px;
     position: relative;
     z-index: 999999999;
+    margin-top: -44px;
+    margin-bottom: 8px;
 }
 
 #profile-pic{
