@@ -2,89 +2,18 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-  <title>Loresquare: Computing Classification System</title>
-  <style type="text/css">
-@import url(styles/page-style.css);
-@import url(styles/chart-style.css);
-
-
-/*Auto complete style*/
-.ls-searchBox{
-  border:#ddd 1px solid;
-  width:150px;
-}
-
-#suggest{
-  position:absolute;
-  background:#fff;
-  width:150px;
-}
- 
-#suggest div{
-  background:#fff;
-  color:#000;
-  padding-left:4px;
-  cursor:hand;
-  text-align:left;
-}
- 
-#suggest div.over{
-  color:#fff;
-  background:#000;
-}
-
-
-</style>
-
 </head>
 <body >
-
-<div id="header">
-    <div id="exploreheader">
-      <a id="logo" href="/">loresquare</a>
-      <div id="searchform">
-          <form id="search" action="" autocomplete="off">
-              <input id="inputSearch" name="q" type="text"  class="ui-autocomplete-input" placeholder="I search concept..." title="Search" spellcheck="false"  autocomplete="off">
-            </form>
-        </div>
-    </div>
-</div>
-
+<div id="up"><img src="/images/Up-icon.png" width="48" height="48" border="0"></div>
 <div id="container">
-  <div id="up-wrapper"><div id="up"><img src="/images/Up-icon.png" width="48" height="48" border="0"></div></div>
-  <div id="lsView"> 
-      <div id="chart"></div>
+	<div id="lsView"> 
+    	<div id="chart"></div>
     </div>
-    <div id="lsInfoView">
-      <div id="lsMessagePanel">
-        <div id="lsMessage">
-              <span> Top concepts for <span id="lsSearchBase">ACM Computing Classification Classification Classification Classification System (CCS)</span></span>
-            </div>
-        </div>    
-    </div>
-    <div id="lsConceptView">
-      <div id="lsConceptPanel">
-          <div id="lsConcepts">
-              <ul id="lsConceptList">
-                  <li class="conceptCard">
-                      <div class="">
-                        <div>
-                    </li>
-                    <li class="conceptCard">
-                      <div class="">
-                        <div>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-    </div>    
 </div>
-
 <script>
 
 function getMaxScreenHeight(){
-  return  window.screen.height - (window.outerHeight-window.innerHeight) - 53;
+	return  window.screen.height - (window.outerHeight-window.innerHeight) - 53;
 }
 
 function getScreenWidth() {
@@ -151,7 +80,7 @@ grandparent.append("text")
     .attr("y", 6 - margin.top)
     .attr("dy", ".75em");
 
-d3.json("http://localhost:3000/pages/acm.json", function(root) {
+d3.json("acm.json", function(root) {
   //dates = root;
 
   initialize(root);
@@ -205,7 +134,7 @@ var transitioning = false;
    
     grandparent
         .datum(d.parent)
-        .on("click", transition)        
+        .on("click", transition)				
       .select("text")
         .text(name(d));
     var g1 = svg.insert("g", ".grandparent")
@@ -214,11 +143,11 @@ var transitioning = false;
 
 //if(!transitioning) 
 precG = g1;
-  
+	
     var g = g1.selectAll("g")
         .data(d.children)
       .enter().append("g");
-    
+	  
 
     g.filter(function(d) { return d.children; })
         .classed("children", true)
@@ -229,9 +158,9 @@ precG = g1;
       .enter().append("rect")
         .attr("class", "child")
         .call(rect)
-    .style("fill", function(d) { return color(d.parent.name); });
-    
-  
+		.style("fill", function(d) { return color(d.parent.name); });
+		
+	
 
     g.append("rect")
         .attr("class", "parent")
@@ -239,124 +168,124 @@ precG = g1;
       .append("title")
         .text(function(d) { return formatNumber(d.value); });
 
-  g.select(".parent")
-    .on("mouseenter",function(e){
-      $(this).siblings("rect").attr("opacity","1");
-    })
-    .on("mouseleave",function(){
-      $(this).siblings("rect").attr("opacity","0.5");
-    })
-  
+	g.select(".parent")
+		.on("mouseenter",function(e){
+			$(this).siblings("rect").attr("opacity","1");
+		})
+		.on("mouseleave",function(){
+			$(this).siblings("rect").attr("opacity","0.5");
+		})
+	
     g.append("text")
         .attr("dy", ".75em")
         .text(function(d) { return d.name; })
         .call(text);
-    
+		
 
-    
-    function transition(d) {
-      //alert(d3.event);
-      dates = d;
-      thiz = this;
-        if (transitioning || !d) return;
-        transitioning = true;
-    
-        var g2 = display(d),
-          t1 = g1.transition().duration(750),
-          t2 = g2.transition().duration(750);
-        
-        
-        precG = g1;
-        gg1=g1;
-        gg2=g2;//alert(d.name);
-        tt1=t1;
-        
-        // Update the domain only after entering new elements.
-        x.domain([d.x, d.x + d.dx]);
-        y.domain([d.y, d.y + d.dy]);
-    
-        // Enable anti-aliasing during the transition.
-        svg.style("shape-rendering", null);
-    
-        // Draw child nodes on top of parent nodes.
-        svg.selectAll(".depth").sort(function(a, b) { return a.depth - b.depth; });
-    
-        // Fade-in entering text.
-        g2.selectAll("text").style("fill-opacity", 0);
-    
-        // Transition to the new view.
-        t1.selectAll("text").call(text).style("fill-opacity", 0);
-        t2.selectAll("text").call(text).style("fill-opacity", 1);
-        t1.selectAll("rect").call(rect);
-        t2.selectAll("rect").call(rect);
-    
-        // Remove the old node when the transition is finished.
-        t1.remove().each("end", function() {
+		
+		function transition(d) {
+			//alert(d3.event);
+			dates = d;
+			thiz = this;
+			  if (transitioning || !d) return;
+			  transitioning = true;
+		
+			  var g2 = display(d),
+				  t1 = g1.transition().duration(750),
+				  t2 = g2.transition().duration(750);
+				
+				
+				precG = g1;
+				gg1=g1;
+				gg2=g2;//alert(d.name);
+				tt1=t1;
+			  
+			  // Update the domain only after entering new elements.
+			  x.domain([d.x, d.x + d.dx]);
+			  y.domain([d.y, d.y + d.dy]);
+		
+			  // Enable anti-aliasing during the transition.
+			  svg.style("shape-rendering", null);
+		
+			  // Draw child nodes on top of parent nodes.
+			  svg.selectAll(".depth").sort(function(a, b) { return a.depth - b.depth; });
+		
+			  // Fade-in entering text.
+			  g2.selectAll("text").style("fill-opacity", 0);
+		
+			  // Transition to the new view.
+			  t1.selectAll("text").call(text).style("fill-opacity", 0);
+			  t2.selectAll("text").call(text).style("fill-opacity", 1);
+			  t1.selectAll("rect").call(rect);
+			  t2.selectAll("rect").call(rect);
+		
+			  // Remove the old node when the transition is finished.
+			  t1.remove().each("end", function() {
 
-        svg.style("shape-rendering", "crispEdges");
-        transitioning = false;
-        
-      
-        OnEnd(t2[0][0].node);
-        });
-      }//end transition
+				svg.style("shape-rendering", "crispEdges");
+				transitioning = false;
+				
+			
+				OnEnd(t2[0][0].node);
+			  });
+			}//end transition
      return g;
   }//end display
 
 
-    function text(text) {
-      text.attr("x", function(d) { return x(d.x) + 6; })
-          .attr("y", function(d) { return y(d.y) + 6; });
-    }
+  	function text(text) {
+    	text.attr("x", function(d) { return x(d.x) + 6; })
+        	.attr("y", function(d) { return y(d.y) + 6; });
+  	}
 
-    function rect(rect) {
-      rect.attr("x", function(d) { return x(d.x); })
-          .attr("y", function(d) { return y(d.y); })
-      .attr("rx", 5).attr("ry", 5)
-      .attr("stroke", "black").attr("stroke-width", 3)
-      .attr("opacity","0.5")
-          .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
-          .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); });
+  	function rect(rect) {
+    	rect.attr("x", function(d) { return x(d.x); })
+        	.attr("y", function(d) { return y(d.y); })
+			.attr("rx", 5).attr("ry", 5)
+			.attr("stroke", "black").attr("stroke-width", 3)
+			.attr("opacity","0.5")
+        	.attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
+        	.attr("height", function(d) { return y(d.y + d.dy) - y(d.y); });
 
-    }
+  	}
 
-  function name(d) {
-    return d.parent
-      ? name(d.parent) + "." + d.name
-      : d.name;
-  }
+	function name(d) {
+		return d.parent
+			? name(d.parent) + "." + d.name
+			: d.name;
+	}
 
-  function toArray(obj) {
-    var array = [];
-    for (var i = obj.length >>> 0; i--;) { 
-    array[i] = obj[i];
-    }
-    return array;
-  }
-  
-  function filterFunction(element, index, array)
-  {
-    return element.textContent == "Data management systems";
-  }
-  
-  function OnEnd(d){
-    //d -> g.depth
-
-    var filtered = toArray(d.children).filter(filterFunction);
-    ///console.log(filtered.length);
-    
-    if(filtered.length > 0)
-      fireEvent(filtered[0].parentNode, "click");     
-  }
-  
-  
+	function toArray(obj) {
+	  var array = [];
+	  for (var i = obj.length >>> 0; i--;) { 
+		array[i] = obj[i];
+	  }
+	  return array;
+	}
+	
+	function filterFunction(element, index, array)
+	{
+		return element.textContent == "Data management systems";
+	}
+	
+	function OnEnd(d){
+		//d -> g.depth
+		var elem = d.childNodes;
+		var filtered = toArray(d.childNodes).filter(filterFunction);
+		//console.log(filtered.length);
+		
+		if(filtered.length > 0)
+			fireEvent(filtered[0].parentNode, "click");			
+	}
+	
+	
 </script>
 
 
 <script>
 
 $("#up").click(function () {
-    fireEvent(d3.select(".grandparent").node() ,"click");
+		fireEvent(d3.select(".grandparent").node() ,"click");
 });
 
 function fireEvent(element,event) {
@@ -385,82 +314,82 @@ var cursorStartX, svgStartLeft;
 
 
 $chart
-    .on('mouseenter', function(e){
-      
-      $(this).on('mousedown',function(e){
-                      
-        /*Drag start*/
-        cursorStartY = e.clientY + window.scrollY;
-        cursorStartX = e.clientX + window.scrollX;
-        
-        if(!svgStartLeft) svgStartLeft = -520;
-        if(!svgStartTop) svgStartTop = 0;
-        
-        /*Drag go*/
-        $(window).on('mousemove', function(e) {
-          $("rect").css('cursor',"move");        
-          $svg.css('transition','transform 0s ease');
-          var x, y;
-          
-          x = e.clientX + window.scrollX;
-            y = e.clientY + window.scrollY;
-          
-          svgStartLeftOffset = svgStartLeft + x - cursorStartX;
-          svgStartTopOffset = svgStartTop + y - cursorStartY;
-            
-            if(Math.abs(svgStartTopOffset) < $svg.height()- getClientHeight() + headerHeight &&
-              svgStartTopOffset < 0 &&
-              svgStartLeftOffset < -520 &&
-              Math.abs(svgStartLeftOffset) < $svg.width()- getClientWidth() + 520)
-            {
+		.on('mouseenter', function(e){
+			
+			$(this).on('mousedown',function(e){
+											
+				/*Drag start*/
+				cursorStartY = e.clientY + window.scrollY;
+				cursorStartX = e.clientX + window.scrollX;
+				
+				if(!svgStartLeft) svgStartLeft = -8;
+				if(!svgStartTop) svgStartTop = 0;
+				
+				/*Drag go*/
+				$(window).on('mousemove', function(e) {
+					$("rect").css('cursor',"move");			   
+					$svg.css('transition','transform 0s ease');
+					var x, y;
+					
+					x = e.clientX + window.scrollX;
+    				y = e.clientY + window.scrollY;
+					
+					svgStartLeftOffset = svgStartLeft + x - cursorStartX;
+					svgStartTopOffset = svgStartTop + y - cursorStartY;
+					  
+					  if(Math.abs(svgStartTopOffset) < $svg.height()- getClientHeight() + headerHeight &&
+							svgStartTopOffset < 0 &&
+							svgStartLeftOffset < 0 &&
+							Math.abs(svgStartLeftOffset) < $svg.width()- getClientWidth() + 0)
+					  {
 
-              $svg.css('transform','translate('+ svgStartLeftOffset +'px, '+ svgStartTopOffset +'px)');
+						  $svg.css('transform','translate('+ svgStartLeftOffset +'px, '+ svgStartTopOffset +'px)');
 
-            }
-            else{
-              if(svgStartTopOffset > 0 ) 
-              {
-                svgStartTopOffset = 0;
-                }
-                else if(Math.abs(svgStartTopOffset) > $svg.height()- getClientHeight() + headerHeight)
-                {
-                  svgStartTopOffset = -1.0* ($svg.height()- getClientHeight() + headerHeight);
-              }
-                
-              if(svgStartLeftOffset > -520)
-              {
-                svgStartLeftOffset = -520; 
-              }
-              else if(Math.abs(svgStartLeftOffset) > $svg.width()- getClientWidth() + 520)
-              {
-                svgStartLeftOffset = -1.0*($svg.width()- getClientWidth() + 520);
-              }
+					  }
+					  else{
+							if(svgStartTopOffset >= 0 ) 
+							{
+							  svgStartTopOffset = 0;
+						  	}
+						  	else if(Math.abs(svgStartTopOffset) > $svg.height()- getClientHeight() + headerHeight)
+						  	{
+						  		svgStartTopOffset = -1.0* ($svg.height()- getClientHeight() + headerHeight);
+							}
+						  	
+							if(svgStartLeftOffset > 0)
+							{
+								svgStartLeftOffset = 0; 
+							}
+							else if(Math.abs(svgStartLeftOffset) > $svg.width()- getClientWidth() + 0)
+							{
+								svgStartLeftOffset = -1.0*($svg.width()- getClientWidth() + 0);
+							}
 
-              $svg.css('transform','translate('+ svgStartLeftOffset +'px, '+ svgStartTopOffset +'px)');
-            }
-            
-          return false;
-        });
-        return false;
-      })
-      .on('mouseup', function(e){
-        svgStartTop = svgStartTopOffset;
-        svgStartLeft = svgStartLeftOffset;
+							$svg.css('transform','translate('+ svgStartLeftOffset +'px, '+ svgStartTopOffset +'px)');
+					  }
+					  
+					return false;
+				});
+				return false;
+			})
+			.on('mouseup', function(e){
+				svgStartTop = svgStartTopOffset;
+				svgStartLeft = svgStartLeftOffset;
 
-        $("rect").css('cursor',""); 
-        $(window).off('mousemove');
-        return false;
-      });
-    })
-    .on('mouseleave', function(){
-      $(window).off('mousemove');
-      $("rect").css('cursor',""); 
-      $svg.css('transform','translate(-520px, 0px)');
-      $svg.css('transition','transform 1s ease');
+				$("rect").css('cursor',"");	
+				$(window).off('mousemove');
+				return false;
+			});
+		})
+		.on('mouseleave', function(){
+			$(window).off('mousemove');
+			$("rect").css('cursor',"");	
+			$svg.css('transform','translate(0px, 0px)');
+			$svg.css('transition','transform 1s ease');
 
-                     
-      return false; 
-    })
+									   
+			return false;	
+		})
 
 ;
 
