@@ -2,6 +2,7 @@
   .span3.searches
     %h1 Search
     %input.search
+    %button.btn Search
 
 
 :css
@@ -26,4 +27,29 @@
     minLength: 3,
     source: #{@names}
   });
+
+  $(".btn").click(function(){
+    var dataString = $(".search").val();
+    if($.inArray(dataString, #{@names}) != -1) {
+      var request = $.ajax({
+        type: "POST",
+        url: "/squares/search",
+        data: {"square": dataString},
+        dataType: "json"
+      });
+
+      request.done(function (msg) {
+        var searchData = msg;
+        console.log(searchData);
+      });
+
+      request.fail(function (msg) {
+        alert("Square not found.");
+      });
+    }
+    else {
+      alert("Square doesn't exist.");
+    }
+  })
+  
 

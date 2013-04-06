@@ -10,6 +10,8 @@ LoreSquare::Application.routes.draw do
 
   end
 
+  match '/squares/search' => 'squares#search'
+
   root to: "squares#index"
 
   # The priority is based upon order of creation:
