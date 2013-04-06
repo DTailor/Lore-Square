@@ -1,12 +1,26 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
+gem 'haml-rails'
+gem 'jquery-rails'
+
+gem 'thin'
+
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+gem "paperclip", "~> 3.0"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'sqlite3'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,7 +34,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
