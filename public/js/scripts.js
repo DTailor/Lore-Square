@@ -23,7 +23,7 @@ var dates;
 var headerHeight = 0;
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
     width = getScreenWidth(),
-    height = getAvailScreenHeight()-133,
+    height = window.innerHeight-47,
     formatNumber = d3.format(",d"),
     transitioning;
 
