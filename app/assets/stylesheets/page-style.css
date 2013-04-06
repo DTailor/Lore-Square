@@ -1,0 +1,237 @@
+html {
+  min-width: 1040px;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  color: #4D4D4D
+}
+
+#header{
+	width: 100%;
+	background: url('../images/header.png') top left repeat-x;
+	height: 52px;
+	left: 0;
+	position: fixed;
+	top: 0;
+	z-index: 314159265;
+}
+#searchform{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #0061B4;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 2px 0 #FFFFFF;
+    float: left;
+    margin-top: 5px;
+    padding: 3px 5px;
+    width: 359px;
+}
+
+
+#searchform form {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("../images/searchLogo.png");
+    background-origin: padding-box;
+    background-position: 2px 12px;
+    background-repeat: no-repeat;
+    background-size: 18px auto;
+    float: left;
+    padding-left: 20px;
+}
+
+#header #search{
+	float: left;
+	position: relative;
+}
+
+#header input[type="text"]{
+	background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    box-shadow: none;
+    margin-top: 2px;
+    outline: medium none;
+    padding: 10px 5px;
+    position: relative;
+    width: 146px;
+}
+
+#header #exploreheader #logo {
+    background: url("../images/logo2.png") no-repeat scroll center transparent;
+    display: block;
+    height: 40px;
+    margin: 5px 5px 0 20px;
+    text-indent: -1111px;
+    width: 101px;
+	float: left;
+}
+#header #exploreheader #logo {
+    margin: 10px;
+}
+
+#exploreheader{
+    width: 500px;
+	height: 60px;
+	border: none;
+	margin-left: 20px;
+	float: left;
+	background: url("../images/explore_header.PNG") repeat-x scroll left top transparent;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+}
+#container{
+	background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+	top: 53px;
+	border: medium none;
+    min-width: 960px;
+    width: 100%;
+}
+
+#lsView{
+    bottom: 0;
+    left: 520px;
+    position: fixed;
+    right: 0;
+    top: 50px;
+    z-index: 1;
+
+}
+
+#lsInfoView{
+	border-color: #1871e3;
+	border-image: none;
+    border-radius: 0 0 2px 2px;
+    border-style: none solid solid;
+    border-width: medium 2px 2px;
+    box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.5);
+    left: 20px;
+    position: fixed;
+    top: 60px;
+    width: 496px;
+    z-index: 428159265;
+}
+
+#lsMessagePanel{
+	background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 0px solid #1871e3;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+#lsMessage{
+    float: left;
+    line-height: 30px;
+    min-width: 300px;
+}
+#lsSearchBase{
+	font-weight: bold;
+}
+
+
+#lsConceptView{
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+    margin: 0 0 0 20px;
+    position: relative;
+    width: 500px;
+    z-index: 2;
+}
+#lsConceptPanel{
+	padding: 82px 10px 1px;
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1) inset;
+	position: relative;
+    z-index: 50;
+}
+
+#lsConcepts{
+	border: 0 none;
+    margin: 0;
+	padding: 0;
+}
+#lsConcepts ul{
+    list-style: none outside none;
+    margin: 0;
+	padding: 0
+}
+
+li.conceptCard{
+   	background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+    margin-bottom: 10px;
+    padding: 10px;
+    position: relative;
+    width: 460px;
+	min-height: 100px;
+}
+
+#up-wrapper{
+	position: fixed;
+	display: block;
+	right: 10px;
+	top: 60px;
+	border: none;
+	background-color: rgba(0,0,0,0.3);
+	z-index:400;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+}
+#up{
+    position: relative;
+    top: 4px;
+	left: 4px;
+	border: none;
+	background-color:#fff;
+	width: 52px;
+	height: 52px;
+	cursor: pointer;
+}
+#up img{
+	margin: 2px;
+}
+
+
+#chart {
+  height: 100%;
+  background: #fff;
+  overflow: visible;
+  position: relative;
+}
+
+svg{
+	position:absolute;
+	transform: translate(-520px, 0px);
+	-moz-transform: translate(-520px, 0px);
+	-o-transform: translate(-520px, 0px);
+	-webkit-transform: translate(-520px, 0px);
+	-moz-transition: transform 0s ease;  
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: -2px;
+  margin: .3em 0 .1em 0;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
+h1, h2 {
+  text-rendering: optimizeLegibility;
+}
+
+h2 a {
+  color: #ccc;
+  left: -20px;
+  position: absolute;
+  width: 740px;
+}

@@ -4,7 +4,7 @@
     border-radius: 5px;
 
     background-color: #7e5769;
-    background-image: url('img/signin-bg.jpg');
+    background-image: url('http://playground.webflow.com/playground/img/signin-bg.jpg');
     background-position: 50% top;
     background-size: cover;
 
@@ -39,7 +39,7 @@
     height: 20px;
     float: right;
 
-    background-image: url('img/signin-x.png');
+    background-image: url('http://playground.webflow.com/playground/img/signin-x.png');
     background-position: 50% 50%;
     background-size: 13px no-repeatpx;
     background-repeat: no-repeat;
@@ -59,12 +59,13 @@
     display: none;
 }
 .sign-in .sign-in-form {
+    text-align: center;
     padding: 18px;
     border-right: 1px solid rgba(0,0,0,0.15);
     box-shadow: 1px 0 0 0 rgba(255,255,255,0.1);
 }
 .sign-in .form-field {
-    width: 100%;
+    min-width: 330px;
     margin-bottom: 10px;
     padding: 13px 15px 13px 40px;
 
@@ -102,12 +103,12 @@
         0 0 16px 0 rgba(201,66,116,0.6);
 }
 .sign-in .form-field.username {
-    background-image: url('img/signin-user.png');
+    background-image: url('http://playground.webflow.com/playground/img/signin-user.png');
     background-position: 15px 48%;
     background-size: 15px auto;
 }
 .sign-in .form-field.password {
-    background-image: url('img/signin-password.png');
+    background-image: url('http://playground.webflow.com/playground/img/signin-password.png');
     background-position: 17px 46%;
     background-size: 11px auto;
 }
@@ -179,18 +180,10 @@
 .sign-in .button.social.facebook {
     background-color: #4364aa;
     background-image: 
-        url('img/signin-fb.png'),
+        url('http://playground.webflow.com/playground/img/signin-fb.png'),
         linear-gradient(0deg, rgba(0,0,0,0.4), transparent);
     background-position: 18px 50%, left top;
     background-size: 12px auto, auto auto;
-}
-.sign-in .button.social.twitter {
-    background-color: #279bce;
-    background-image: 
-        url('img/signin-twitter.png'),
-        linear-gradient(0deg, rgba(0,0,0,0.4), transparent);
-    background-position: 12px 50%, left top;
-    background-size: 24px auto, auto auto;
 }
 @media (max-width: 979px) and (min-width: 768px) {
     .sign-in .popup {
@@ -204,10 +197,6 @@
     .sign-in .button.social.facebook {
         background-position: 14px 50%, left top;
         background-size: 9px auto, auto auto;
-    }
-    .sign-in .button.social.twitter {
-        background-position: 10px 50%, left top;
-        background-size: 18px auto, auto auto;
     }
 }
 @media (max-width: 767px) {
