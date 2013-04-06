@@ -90,6 +90,8 @@ body {
 	border: medium none;
     min-width: 960px;
     width: 100%;
+    position: relative;
+  left: -80px;
 }
 
 #lsInfoView{

@@ -4,8 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 </head>
 <body >
-<div id="up"><img src="/images/Up-icon.png" width="48" height="48" border="0"></div>
-<a id="simple-menu" href="#sidr">Toogle menu</a>
+
+
+<div id="up">
+	<a href="#sidr"></a>
+</div>
+
+<a href="#" onclick="return "><div id='detailed-view'></div></a>
+
 
 <div id="sidr">
   <!-- Your content -->
@@ -408,7 +414,7 @@ $chart
 
 <script>
 $(document).ready(function() {
-  $('#simple-menu').sidr();
+  $('#detailed-view').sidr();
 });
 </script>
    
