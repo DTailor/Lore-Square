@@ -11,4 +11,6 @@
  *= require_self
  *= require_tree .
  *= require styles.css
+ *= require page-style.css
+ *= require chart-style.css
  */

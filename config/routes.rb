@@ -1,6 +1,15 @@
 LoreSquare::Application.routes.draw do
   devise_for :users, :controllers => { :sessions => "users/sessions", :registrations => "users/registrations" }
 
+  namespace :pages do
+    root :to => "pages#index"
+    get 'index' => :index
+    get 'acm_json' => :acm_json
+    get 'test' => :test
+    get 'acm' => :acm
+
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
