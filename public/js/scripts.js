@@ -318,7 +318,7 @@ $chart
 
 ;
 $(document).ready(function() {
-  $('#detailed-view').sidr();
+  $('#detailed-view').sidr({'speed':500,'body':"div#content"});
 
   $(document).ready(function() {
     $('#progress-bar').simpleProgressBar();
