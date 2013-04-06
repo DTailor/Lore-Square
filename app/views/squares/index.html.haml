@@ -1,0 +1,12 @@
+.container
+  .span4.search-section
+    %h1 Search
+    %input.search
+
+
+:javascript
+  $('.search').autocomplete({
+    delay: 50,
+    source: #{@names}
+  });
+

@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+squares = Square.create(
+  [
+    {name: 'first',  parent_id: 0},
+    {name: 'second', parent_id: 1},
+    {name: 'third',  parent_id: 1},
+    {name: 'fourth', parent_id: 2},
+    {name: 'fifth',  parent_id: 2},
+    {name: 'sixth',  parent_id: 3},
+    {name: 'seventh', parent_id: 3}
+  ])
