@@ -21,6 +21,18 @@ class Square < ActiveRecord::Base
 	end
 
 	# ========================================
+  def self.search_ids(string)
+    all_squares = Square.all
+    target = all_squares.select{|s| s.name == string}.first
+    result = [target.id]
+    parent_id = target.parent_id
+    while(parent_id)
+      current = all_squares.select{|s| s.id == parent_id}.first
+      result << current.id
+      parent_id = current.parent_id
+    end
+    result.reverse
+  end
 
 	def self.populate_data()
 		str = File.read(Rails.root.to_s + "/app/helpers/data.json")
