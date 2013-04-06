@@ -12,6 +12,7 @@
               = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
                 .sign-in-form
                   = f.text_field :email, :autofocus => true, :class => "form-field username", :placeholder => "E-mail"
+                  %br
                   = f.password_field :password, :class => "form-field password", :placeholder => "Password"
                   %a.forgot-password{:href => "#"} Forgot your username or password?
                   %a.button.sign-in{:href => "#"} Sign In
@@ -20,7 +21,6 @@
               .external-auth.clearfix
                 .intro Or log in with:
                 %a.button.social.facebook{:href => "#"} Facebook
-                %a.button.social.twitter.wf-affected{:href => "#"} Twitter
 
 :javascript
   $('.button.sign-in').click(function(){
