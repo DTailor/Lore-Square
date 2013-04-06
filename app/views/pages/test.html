@@ -5,6 +5,17 @@
 </head>
 <body >
 <div id="up"><img src="/images/Up-icon.png" width="48" height="48" border="0"></div>
+<a id="simple-menu" href="#sidr">Toogle menu</a>
+
+<div id="sidr">
+  <!-- Your content -->
+  <ul>
+    <li><a href="#">List 1</a></li>
+    <li class="active"><a href="#">List 2</a></li>
+    <li><a href="#">List 3</a></li>
+  </ul>
+</div>
+
 <div id="container">
 	<div id="lsView"> 
     	<div id="chart"></div>
@@ -394,6 +405,12 @@ $chart
 ;
 
 </script> 
+
+<script>
+$(document).ready(function() {
+  $('#simple-menu').sidr();
+});
+</script>
    
   </body>
 </html>
