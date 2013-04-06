@@ -1,5 +1,7 @@
 class Square < ActiveRecord::Base
   attr_accessible :name,:parent_id
+  has_many :checkins
+  has_many :users, :through => :checkins
 
 
   def children
