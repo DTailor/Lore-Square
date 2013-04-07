@@ -241,21 +241,14 @@ iframe{
 
 
 .username{
-    display: inline-block;
-    position: absolute;
     color: #888888;
     font-size: 20px;
     font-family: Calibri;
     font-weight: bold;
-    width: 200px;
-    margin-left: 1100px;
-    margin-top: -28px;
+    width: 161px;
 }
 
 #login{
-    position: absolute;
-    margin-top: -27px;
-    margin-left: 1270px;
     width: 25px;
 }
 
@@ -274,6 +267,17 @@ iframe{
     height: 23px;
     padding-right: 8px;
     float: right;
+}
+
+.login-wrapper{
+    float:right;
+    margin-top: 11px;
+    margin-right: 11px;
+
+}
+
+.login-wrapper div{
+    float:left;
 }
 
 #login input:focus,
