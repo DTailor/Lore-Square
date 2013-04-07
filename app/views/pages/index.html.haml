@@ -9,11 +9,8 @@
       #up
         %a{:href => "#sidr"}
       %form#search-form
-        %input#searchBy{:name => "search", :placeholder => "Search", :type => "text"}
+        %input#searchBy{:class => 'search', :name => "search", :placeholder => "Search", :type => "text"}
           %input{:class => "search-btn", :value => "Go", :type => "Submit"}
-      .username Danny Tailor
-      %form#login{:action => ""}
-        %input{:type => "submit", :value => "Log XXX"}
     #content.content-wrapper{:onclick => "HideSidr()"}
       %img#logo{:alt => "", :src => "/images/logo.png"}
       #sidr
@@ -87,7 +84,7 @@
   }
 
 :javascript
-  $('.search, .checkin').autocomplete({
+  $('.search').autocomplete({
     delay: 50,
     minLength: 3,
     source: #{@names}
@@ -112,9 +109,6 @@
         $(arr.map(function(val){
           return '#'+val;
         }).join(""));
-
-
-
         });
       });
 
