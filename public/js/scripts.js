@@ -135,13 +135,19 @@ precG = g1;
       .enter().append("g");
 
 
-    g.filter(function(d) { return d; })
+    g.filter(function(d) {
+      var ret = (d.children) ? d.children :  d;
+       return ret;
+        })
         .classed("children", true)
         .attr("id", "_")
         .on("click", passTransition);
 
 
-    g.filter(function(d) { return d; })
+    g.filter(function(d) {
+    var ret = (d.children) ? d.children :  d;
+       return ret;
+        })
         .classed("children", true)
         .attr("id", "_").on("click", passTransition);
 
@@ -231,19 +237,21 @@ precG = g1;
     if(this.clicked === true){
       this.clicked = false
       clearTimeout(this.timeout)
-      var dataReq = "square=" + ev.id;
+      var dataReq = {'square' : ev.id};
       var request = $.ajax({
         url: "/squares/checkin",
         type: "POST",
         data: dataReq,
+        dataType: "json"
       });
        
       request.done(function(msg) {
-        $("#log").html( msg );
+          console.log(msg);
       });
        
       request.fail(function(jqXHR, textStatus) {
-        alert( "Request failed: " + textStatus );
+          console.log(msg);
+        // alert( "Request failed: " + textStatus );
       });
       // alert(ev.id);
     }else{
