@@ -46,6 +46,7 @@ var svg = d3.select("#chart").append("svg")
     .attr("height", height + margin.bottom + margin.top)
     .style("margin-left", -margin.left + "px")
     .style("margin.right", -margin.right + "px")
+    .style("font-size", 15)
   .append("g")
     .style("shape-rendering", "crispEdges");
 
@@ -65,7 +66,7 @@ grandparent.append("text")
     .attr("y", 6 - margin.top)
     .attr("dy", ".75em");
 
-d3.json("acm_new.json", function(root) {
+d3.json("acm_value.json", function(root) {
   //dates = root;
 
   initialize(root);
@@ -129,20 +130,29 @@ var transitioning = false;
 //if(!transitioning) 
 precG = g1;
 	 
+   var is_dblclick=false;
     var g = g1.selectAll("g")
         .data(d.children)
       .enter().append("g");
+	  
+    g.filter(function(d) { return d.children; })
+          .classed("children", true)
+          .on("dblclick", function(){alert('some shit'); is_dblclick=true});
 
+          if (!is_dblclick){
     g.filter(function(d) { return d.children; })
         .classed("children", true)
-        .on("click", transition);     
+        .attr("id", "_")
+        .on("click", transition);
+}
+     
 
     g.selectAll(".child")
-        .data(function(d) { return d.children || [d]; })
+        .data(function(d) { return [d] || [d]; })//return d.children || [d]; 
       .enter().append("rect")
         .attr("class", "child")
         .call(rect)
-		.style("fill", function(d) { return color(d.parent.name); });
+		.style("fill", function(d) { return color(d.name); });
 		
 	
 
@@ -218,8 +228,8 @@ precG = g1;
 
 
   	function text(text) {
-    	text.attr("x", function(d) { return x(d.x) + 6; })
-        	.attr("y", function(d) { return y(d.y) + 6; });
+    	text.attr("x", function(d) { return x(d.x) + 10; })
+        	.attr("y", function(d) { return y(d.y) + 10; });
   	}
 
   	function rect(rect) {
