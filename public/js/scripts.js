@@ -178,7 +178,7 @@ precG = g1;
 
 		
 		function transition(d) {
-      console.log(d);
+      // console.log(d);
 			dates = d;
 			thiz = this;
 			  if (transitioning || !d) return;
@@ -231,7 +231,21 @@ precG = g1;
     if(this.clicked === true){
       this.clicked = false
       clearTimeout(this.timeout)
-      alert(ev.id);
+      var dataReq = "square=" + ev.id;
+      var request = $.ajax({
+        url: "/squares/checkin",
+        type: "POST",
+        data: dataReq,
+      });
+       
+      request.done(function(msg) {
+        $("#log").html( msg );
+      });
+       
+      request.fail(function(jqXHR, textStatus) {
+        alert( "Request failed: " + textStatus );
+      });
+      // alert(ev.id);
     }else{
       this.clicked = true
       var that = this
