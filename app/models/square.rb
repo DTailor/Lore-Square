@@ -11,7 +11,7 @@ class Square < ActiveRecord::Base
   # ========================================
   # 
   def to_node
-   hash =  { "id" => self.id, "name" => self.name }
+   hash =  { "value" => 1, "id" => self.id, "name" => self.name }
     unless children.empty?
     	hash["children"] = self.children.map { |c| c.to_node }
 		end

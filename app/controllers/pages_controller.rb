@@ -13,4 +13,10 @@ class PagesController < ApplicationController
       format.json { render :json => File.read(Rails.root.to_s + "/app/views/pages/acm_new.json") }
     end
   end    
+
+  def acm_value
+    respond_to do |format|
+      format.json { render :json => File.read(Rails.root.to_s + "/app/views/pages/acm_value.json") }
+    end
+  end   
 end

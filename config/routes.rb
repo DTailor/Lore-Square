@@ -14,7 +14,7 @@ LoreSquare::Application.routes.draw do
     get 'test' => :test
     get 'acm' => :acm
     get 'acm_new' => :acm_new
-
+    get 'acm_value' => :acm_value
   end
 
   match '/squares/search' => 'squares#search'
