@@ -1,3 +1,8 @@
+@font-face {  
+  font-family: Calibri;  
+  src: url('/css/calibri.ttf') format("truetype");  
+} 
+
 #up{
     background: url('/images/up-icon-new.png') no-repeat;
     left: 12px;
