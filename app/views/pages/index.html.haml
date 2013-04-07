@@ -105,8 +105,19 @@
       });
 
       request.done(function (msg) {
-        console.log(msg);
+        $.each(msg, function(index,value){
+
+        var arr = value.split(" ");
+        
+        $(arr.map(function(val){
+          return '#'+val;
+        }).join(""));
+
+
+
+        });
       });
+
 
       request.fail(function (msg) {
         alert("Square not found.");
