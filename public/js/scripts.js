@@ -89,7 +89,7 @@ d3.json("acm_value.json", function(root) {
   function accumulate(d) {
     return d.children
         ? d.value = d.children.reduce(function(p, v) { return p + accumulate(v); }, 0)
-        : d.value;
+        : 1;
   }
 
   // Compute the treemap layout recursively such that each group of siblings
@@ -160,7 +160,7 @@ precG = g1;
         .attr("class", "parent")
         .call(rect)
       .append("title")
-        .text(function(d) { return formatNumber(d.value); });
+        .text(function(d) { return formatNumber(1); });
 
 	g.select(".parent")
 		.on("mouseenter",function(e){
