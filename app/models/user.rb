@@ -5,7 +5,13 @@ class User < ActiveRecord::Base
          :omniauth_providers => [:facebook]
 
   attr_accessible :email, :password, :password_confirmation,
-                  :remember_me, :provider, :uid
+                  :remember_me, :provider, :uid, :avatar, :name
+
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
+                    :default_url => "/images/:style/missing.png"
+
+  has_many :checkins
+  has_many :squares, :through => :checkins
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -13,6 +19,7 @@ class User < ActiveRecord::Base
       user = User.create(
                          provider:auth.provider,
                          uid:auth.uid,
+                         name:auth.info.name,
                          email:auth.info.email,
                          password:Devise.friendly_token[0,20]
                          )
@@ -20,10 +27,14 @@ class User < ActiveRecord::Base
     user
   end
 
-
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  has_many :checkins
-  has_many :squares, :through => :checkins
+  def self.new_with_session(params, session)
+    fb_data = "devise.facebook_data"
+    super.tap do |user|
+      if data = session[fb_data] && session[fb_data]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
 
   def check_in(square)
     if self.can_check_in?(square)
@@ -48,15 +59,6 @@ class User < ActiveRecord::Base
       end
     end
     return true
-  end
-
-  def self.new_with_session(params, session)
-    fb_data = "devise.facebook_data"
-    super.tap do |user|
-      if data = session[fb_data] && session[fb_data]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-      end
-    end
   end
 
   def progress_for square

@@ -13,8 +13,9 @@
       %img#logo{:alt => "", :src => "/images/logo.png"}
       #sidr
         #profile-pic
+          / = image_tag current_user.avatar.url
           %img{:src => "/images/avatar.gif"}
-        #profile-name Dan Tailor
+        #profile-name=current_user.name
         #profile-progress Overall progress
         #progress-bar{"data-bar-length" => "30"}
       #container

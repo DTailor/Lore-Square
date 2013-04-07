@@ -10,7 +10,7 @@ LoreSquare::Application.routes.draw do
   end
 
   namespace :pages do
-    root :to => "pages#test"
+    root :to => "pages#index"
     get 'test' => :test
     get 'acm' => :acm
     get 'acm_new' => :acm_new
@@ -21,7 +21,7 @@ LoreSquare::Application.routes.draw do
   match '/squares/search' => 'squares#search'
   match '/squares/checkin' => 'squares#checkin'
 
-  root to: "squares#index"
+  root to: "pages#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
