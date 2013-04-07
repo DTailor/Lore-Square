@@ -153,6 +153,7 @@ precG = g1;
     g.append("rect")
         .attr("class", "parent")
         .call(rect)
+        .attr("id",function(d) { return d.name; })
       .append("title")
         .text(function(d) { return formatNumber(1); });
 
