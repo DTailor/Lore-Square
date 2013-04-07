@@ -133,64 +133,19 @@ precG = g1;
     var g = g1.selectAll("g")
         .data(d.children)
       .enter().append("g");
-<<<<<<< Updated upstream
+
 
     g.filter(function(d) { return d.children; })
         .classed("children", true)
         .attr("id", "_")
         .on("click", transition);
-=======
+
 	  
-//on("click", transition);
+
     var hz = g.filter(function(d) { return d.children; })
         .classed("children", true)
         .attr("id", "_").on("click", transition);
 
-
-var DELAY = 700, clicks = 0, timer = null;
-
-$(document).ready(function() {
-
-    $('.children')
-    .bind("click", function(e){
-
-        clicks++;
-
-        if(clicks === 1) {
-
-            timer = setTimeout(function() {
-              transition(this);
-              console.log();
-          
-                clicks = 0;             
-
-            }, DELAY);
-
-        } else {
-
-            clearTimeout(timer);    //prevent single-click action
-            alert("Double Click");  //perform double-click action
-            clicks = 0;             //after action performed, reset counter
-        }
-
-    })
-    .bind("dblclick", function(e){
-        e.preventDefault();  //cancel system double-click event
-    });
-
-});
-
- 
-
-
-
-// $('td.dblclickable').bind('click', $.singleDoubleClick(function(e){
-//   //click.
-// }, function(e){
-//   //double click.
-// });
->>>>>>> Stashed changes
-     
 
     g.selectAll(".child")
         .data(function(d) { return [d] || [d]; })//return d.children || [d]; 
@@ -223,8 +178,6 @@ $(document).ready(function() {
 
 		
 		function transition(d) {
-      console.log(d);
-			//alert(d3.event);
 			dates = d;
 			thiz = this;
 			  if (transitioning || !d) return;
