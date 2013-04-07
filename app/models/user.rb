@@ -51,13 +51,13 @@ class User < ActiveRecord::Base
 
   def can_check_in?(square)
     return false if self.squares.include? square
-    children = square.children
-    checkins = self.squares
-    unless children.empty?
-      children.each do |child|
-        return false unless checkins.include? child
-      end
-    end
+    # children = square.children
+    # checkins = self.squares
+    # unless children.empty?
+    #   children.each do |child|
+    #     return false unless checkins.include? child
+    #   end
+    # end
     return true
   end
 
