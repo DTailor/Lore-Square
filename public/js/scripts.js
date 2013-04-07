@@ -67,7 +67,6 @@ grandparent.append("text")
     .attr("dy", ".75em");
 
 d3.json("acm_value.json", function(root) {
-  //dates = root;
 
   initialize(root);
   accumulate(root);
@@ -127,11 +126,10 @@ var transitioning = false;
         .datum(d)
         .attr("class", "depth");
 
-//if(!transitioning){
 precG = g1;
 	 
     var g = g1.selectAll("g")
-        .data(d.children)
+      .data(d.children)
       .enter().append("g");
 
 
@@ -172,10 +170,9 @@ precG = g1;
 
 		
 		function transition(d) {
-      // console.log(d);
+
     if(d.children){
-			dates = d;
-			thiz = this;
+			 dates = d;
 			  if (transitioning || !d) return;
 
 			  transitioning = true;
@@ -186,10 +183,7 @@ precG = g1;
 				
 				
 				precG = g1;
-				gg1=g1;
-				gg2=g2;//alert(d.name);
-				tt1=t1;
-			  
+
 			  // Update the domain only after entering new elements.
 			  x.domain([d.x, d.x + d.dx]);
 			  y.domain([d.y, d.y + d.dy]);
@@ -242,18 +236,14 @@ precG = g1;
        
       request.fail(function(jqXHR, textStatus) {
           console.log(msg);
-        // alert( "Request failed: " + textStatus );
       });
-      // alert(ev.id);
     }else{
       this.clicked = true
       var that = this
 
       this.timeout = setTimeout(function () {
         that.clicked = false
-        // $(that).trigger('clicked')
         transition(ev);
-        // alert('clicked');
       }, 200)      
     }
 
