@@ -104,6 +104,7 @@ img#logo{
     position: absolute;
     margin-top: -27px;
     margin-left: 100px;
+    width: 250px;
 }
 
 .search-form input{
@@ -114,6 +115,16 @@ img#logo{
     background-color: #414042;
     border-radius: 10px;
     margin-left: 0;
-    padding-left: 10px;
+    padding-left: 8px;
     outline:none;
+    margin-bottom: 0px;
+    border-width: 1px;
+    height: 23px;
+    padding-right: 8px;
+}
+
+.search-form input:focus,
+.search-form input:hover{
+    border-color: rgba(82, 168, 236, 0.8);
+    transition: border linear 0.2s, box-shadow linear 0.2s;
 }

@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html;charset=utf-8", "http-equiv" => "Content-Type"}
+  %body
+    .topBar
+    .button-wrapper
+      %a{:href => "#", :onclick => "return "}
+      #detailed-view
+        %a{:href => "#", :onclick => "return "}
+      #up
+        %a{:href => "#sidr"}
+      %form.search-form
+        %input{:name => "search", :placeholder => "Search", :type => "text"}/
+        %input{:type => "submit", :value => "Go"}/        
+    #content.content-wrapper{:onclick => "HideSidr()"}
+      %img#logo{:alt => "", :src => "/images/logo.png"}
+      #sidr
+        #profile-pic
+          / = image_tag current_user.avatar.url
+          %img{:src => "/images/avatar.gif"}
+        #profile-name
+          - if current_user and current_user.name
+            = current_user.name
+          - else
+            = "Dan Tailor"
+        #profile-progress Overall progress
+        #progress-bar{"data-bar-length" => "30"}
+      #container
+        #lsView
+          #chart
+    %script{:src => "/js/scripts.js", :type => "text/javascript"}
+    %script{:src => "/js/jquery.simple-progress-bar.js", :type => "text/javascript"}
