@@ -18,10 +18,14 @@ class Square < ActiveRecord::Base
 		hash
   end
 
-	def to_json
-		self.to_node.to_json
+	def one_to_json
+		JSON.parse(self.to_node.to_json)
 	end
 
+  def self.all_to_json
+    array = Square.where(:parent_id => nil).map(&:one_to_json)
+    {"name" => "ACMComputingClassificationSystem", "children" => array}.to_json
+  end
 	# ========================================
   def self.search_ids(string)
     all_squares = Square.all
@@ -52,7 +56,12 @@ class Square < ActiveRecord::Base
 			children.each{|child| populate_helper(s.id, child)}
 		end
 	end
-	
+
+	def descendents
+    children.map do |child|
+      [child] + child.descendents
+    end.flatten
+  end
 
 end
 

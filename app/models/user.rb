@@ -26,7 +26,12 @@ class User < ActiveRecord::Base
   has_many :squares, :through => :checkins
 
   def check_in(square)
-    self.squares.push(square) if self.can_check_in?(square)
+    if self.can_check_in?(square)
+       self.squares.push(square)
+       return true
+    else 
+      return false
+    end 
   end
 
   def check_out(square)
@@ -52,5 +57,12 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
-  end                  
+  end
+
+  def progress_for square
+    # total = square.children
+    # checked_in = total.select { |s| self.squares.include? s }
+    # checked_in.size / total.size * 100
+  end
+
 end

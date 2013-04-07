@@ -19,6 +19,7 @@ LoreSquare::Application.routes.draw do
   end
 
   match '/squares/search' => 'squares#search'
+  match '/squares/checkin' => 'squares#checkin'
 
   root to: "squares#index"
 

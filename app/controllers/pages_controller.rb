@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 
   def acm
     respond_to do |format|
-      format.json { render :json => File.read(Rails.root.to_s + "/app/views/pages/acm.json") }
+      format.json { render :json => Square.all_to_json }
     end
   end  
 end

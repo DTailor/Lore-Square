@@ -14,4 +14,11 @@ class SquaresController < ApplicationController
     # result_array = Square.search_ids(params[:search][:])
     # end
   end
+
+  def checkin
+    square = Square.where(:name => params[:square]).first
+    result = current_user.check_in square
+    render :json => result, :layout => false
+  end
+
 end
