@@ -46,7 +46,7 @@ var svg = d3.select("#chart").append("svg")
     .attr("height", height + margin.bottom + margin.top)
     .style("margin-left", -margin.left + "px")
     .style("margin.right", -margin.right + "px")
-    .style("font-size", 15)
+    .style("font-size", 18)
   .append("g")
     .style("shape-rendering", "crispEdges");
 
@@ -134,11 +134,18 @@ precG = g1;
         .data(d.children)
       .enter().append("g");
 
+
     g.filter(function(d) { return d.children; })
         .classed("children", true)
         .attr("id", "_")
         .on("click", transition);
-     
+
+	  
+
+    var hz = g.filter(function(d) { return d.children; })
+        .classed("children", true)
+        .attr("id", "_").on("click", transition);
+
 
     g.selectAll(".child")
         .data(function(d) { return [d] || [d]; })//return d.children || [d]; 
@@ -171,7 +178,6 @@ precG = g1;
 
 		
 		function transition(d) {
-			//alert(d3.event);
 			dates = d;
 			thiz = this;
 			  if (transitioning || !d) return;
@@ -333,3 +339,7 @@ function HideSidr(){
     jQuery.sidr('close');
   }
 }
+
+
+
+
