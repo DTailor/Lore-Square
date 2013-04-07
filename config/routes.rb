@@ -13,6 +13,7 @@ LoreSquare::Application.routes.draw do
     root :to => "pages#test"
     get 'test' => :test
     get 'acm' => :acm
+    get 'acm_new' => :acm_new
 
   end
 

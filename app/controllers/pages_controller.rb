@@ -4,7 +4,13 @@ class PagesController < ApplicationController
 
   def acm
     respond_to do |format|
-      format.json { render :json => Square.all_to_json }
+      format.json { render :json => File.read(Rails.root.to_s + "/app/views/pages/acm.json") }
     end
-  end  
+  end
+
+  def acm_new
+    respond_to do |format|
+      format.json { render :json => File.read(Rails.root.to_s + "/app/views/pages/acm_new.json") }
+    end
+  end    
 end
