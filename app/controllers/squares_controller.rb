@@ -11,7 +11,7 @@ class SquaresController < ApplicationController
   end
 
   def checkin
-    square = Square.where(:name => params[:square]).first
+    square = Square.find(params[:square])
     result = current_user.check_in square
     render :json => result, :layout => false
   end
