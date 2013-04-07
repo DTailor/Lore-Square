@@ -244,6 +244,10 @@ precG = g1;
        
       request.fail(function(jqXHR, textStatus) {
         alert( "Request failed: " + textStatus );
+        $(".dark-overlay").css("display","block");
+        $(".inner-content").css("top",(window.outerHeight-$(".inner-content").css('height'))/2);
+        $(".inner-content").css("top",(window.innerWidth-$(".inner-content").css('width'))/2);
+        $(".inner-content").css("display","block");
       });
       // alert(ev.id);
     }else{
@@ -320,7 +324,10 @@ $("#up").click(function () {
 		fireEvent(d3.select(".grandparent").node() ,"click");
 });
 
-
+$(".dark-overlay").click(function(){
+      $(".dark-overlay").fadeOut(500);
+      $(".inner-content").fadeOut(500);
+});
 
 function fireEvent(element,event) {
    if (document.createEvent) {

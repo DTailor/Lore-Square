@@ -1,4 +1,3 @@
-!!!
 %html
   %head
     %meta{:content => "text/html;charset=utf-8", "http-equiv" => "Content-Type"}
@@ -12,8 +11,8 @@
         %a{:href => "#sidr"}
       %form.search-form
         %input{:class => "search", :name => "search", :placeholder => "Search", :type => "text"}
-        %input{:class => "search-btn", :type => "submit", :value => "Go"}/
-      / %button.search-btn Search        
+        %input{:class => "search-btn", :value => "Go", :type => "Submit"}
+        / %button.search-btn Search        
     #content.content-wrapper{:onclick => "HideSidr()"}
       %img#logo{:alt => "", :src => "/images/logo.png"}
       #sidr
@@ -48,7 +47,8 @@
     source: #{@names}
   });
 
-  $(".search-btn").click(function(){
+  $(".search-btn").click(function(e){
+    e.preventDefault();
     var dataString = $(".search").val();
     if($.inArray(dataString, #{@names}) != -1) {
       var request = $.ajax({
