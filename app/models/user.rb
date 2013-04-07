@@ -13,6 +13,16 @@ class User < ActiveRecord::Base
   has_many :checkins
   has_many :squares, :through => :checkins
 
+  RANKS = { (0..2)           => 'Private',
+            (3..4)          => 'Corporal',
+            (5..6)          => 'Sergeant',
+            (7..8)          => 'Lieutenant',
+            (9..10)         => 'Captain',
+            (11..11)        => 'Major',
+            (12..13)        => 'Colonel',
+            (14..+1.0/0.0)   => 'General'
+          }
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
@@ -47,6 +57,14 @@ class User < ActiveRecord::Base
 
   def check_out(square)
     self.squares.delete(square)
+  end
+
+  def rank
+    RANKS.each do |k, v|
+      return v if k.include?(self.squares.count)
+    end
+
+    nil
   end
 
   def can_check_in?(square)
