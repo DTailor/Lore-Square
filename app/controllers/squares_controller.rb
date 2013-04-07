@@ -6,6 +6,7 @@ class SquaresController < ApplicationController
 	end
 
   def search
+    p params
     result_array = Square.search_ids(params[:square])
     render :json => result_array, :layout => false
   end

@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
 
   def test
+    @squares = Square.all
+    @names = @squares.map{|s| s.name}
   end
 
   def index
