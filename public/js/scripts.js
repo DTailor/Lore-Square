@@ -24,7 +24,7 @@ var headerHeight = 0;
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
     width = getScreenWidth(),
     height = window.innerHeight-47,
-    formatNumber = d3.format(",d"),
+    formatNumber = d3.format("d"),
     transitioning;
 
 var x = d3.scale.linear()
@@ -67,7 +67,6 @@ grandparent.append("text")
     .attr("dy", ".75em");
 
 d3.json("acm_value.json", function(root) {
-  //dates = root;
 
   initialize(root);
   accumulate(root);
@@ -127,24 +126,19 @@ var transitioning = false;
         .datum(d)
         .attr("class", "depth");
 
-//if(!transitioning) 
 precG = g1;
 	 
     var g = g1.selectAll("g")
-        .data(d.children)
+      .data(d.children)
       .enter().append("g");
 
 
-    g.filter(function(d) { return d; })
+
+
+    g.filter(function(d) { return d;})
         .classed("children", true)
         .attr("id", "_")
         .on("click", passTransition);
-
-
-    g.filter(function(d) { return d; })
-        .classed("children", true)
-        .attr("id", "_").on("click", passTransition);
-
 
 
     g.selectAll(".child")
@@ -178,10 +172,11 @@ precG = g1;
 
 		
 		function transition(d) {
-      // console.log(d);
-			dates = d;
-			thiz = this;
+
+    if(d.children){
+			 dates = d;
 			  if (transitioning || !d) return;
+
 			  transitioning = true;
 		
 			  var g2 = display(d),
@@ -190,10 +185,7 @@ precG = g1;
 				
 				
 				precG = g1;
-				gg1=g1;
-				gg2=g2;//alert(d.name);
-				tt1=t1;
-			  
+
 			  // Update the domain only after entering new elements.
 			  x.domain([d.x, d.x + d.dx]);
 			  y.domain([d.y, d.y + d.dy]);
@@ -216,13 +208,14 @@ precG = g1;
 			  // Remove the old node when the transition is finished.
 			  t1.remove().each("end", function() {
 
-				svg.style("shape-rendering", "crispEdges");
-				transitioning = false;
-				
-			
-				OnEnd(t2[0][0].node);
+  				svg.style("shape-rendering", "crispEdges");
+  				transitioning = false;
+
 			  });
-			}//end transition
+      }else{
+        return 0;
+      }
+	}//end transition
 
 
     function passTransition(ev){
@@ -243,22 +236,20 @@ precG = g1;
       });
        
       request.fail(function(jqXHR, textStatus) {
+
         alert( "Request failed: " + textStatus );
         $(".dark-overlay").css("display","block");
         $(".inner-content").css("top",(window.outerHeight-$(".inner-content").css('height'))/2);
         $(".inner-content").css("top",(window.innerWidth-$(".inner-content").css('width'))/2);
         $(".inner-content").css("display","block");
       });
-      // alert(ev.id);
     }else{
       this.clicked = true
       var that = this
 
       this.timeout = setTimeout(function () {
         that.clicked = false
-        // $(that).trigger('clicked')
         transition(ev);
-        // alert('clicked');
       }, 200)      
     }
 
@@ -269,8 +260,6 @@ $("#up").click(function () {
 
      return g;
   }//end display
-
-
 
 
   	function text(text) {
@@ -290,38 +279,19 @@ $("#up").click(function () {
   	}
 
 	function name(d) {
-		return d.parent
-			? name(d.parent) + "." + d.name
-			: d.name;
+    if(d.name !== 'Join algorithms'){
+      return d.parent
+      ? name(d.parent) + "." + d.name
+      : d.name;
+    }else{
+      return name(d.parent);
+    }
 	}
-
-	function toArray(obj) {
-	  var array = [];
-	  for (var i = obj.length >>> 0; i--;) { 
-		array[i] = obj[i];
-	  }
-	  return array;
-	}
-	
-	function filterFunction(element, index, array)
-	{
-		return element.textContent == "Information systedf";
-	}
-	
-	function OnEnd(d){
-		//d -> g.depth
-		var elem = d.childNodes;
-		var filtered = toArray(d.childNodes).filter(filterFunction);
-		//console.log(filtered.length);
-		
-		if(filtered.length > 0)
-			fireEvent(filtered[0].parentNode, "click");			
-	}
-	
 
 
 $("#up").click(function () {
-		fireEvent(d3.select(".grandparent").node() ,"click");
+    console.log(d3.select(".grandparent").node());
+    fireEvent(d3.select(".grandparent").node() ,"click");
 });
 
 $(".dark-overlay").click(function(){
@@ -343,40 +313,6 @@ function fireEvent(element,event) {
 }
   
 
-var $chart = $('#chart');
-var $svg = $("svg");
-
-var cursorStartY, svgStartTop;
-var cursorStartX, svgStartLeft;
-
-
-$chart
-		.on('mouseenter', function(e){
-			
-			$(this).on('mousedown',function(e){
-											
-				/*Drag start*/
-				cursorStartY = e.clientY + window.scrollY;
-				cursorStartX = e.clientX + window.scrollX;
-				
-				if(!svgStartLeft) svgStartLeft = 0;
-				if(!svgStartTop) svgStartTop = 0;
-				
-
-				return false;
-			})
-		})
-		.on('mouseleave', function(){
-			$(window).off('mousemove');
-			$("rect").css('cursor',"");	
-			$svg.css('transform','translate(0px, 0px)');
-			$svg.css('transition','transform 1s ease');
-
-									   
-			return false;	
-		})
-
-;
 $(document).ready(function() {
   $('#detailed-view').sidr({'speed':500,'body':"div#content"});
 
@@ -390,4 +326,7 @@ function HideSidr(){
   if($('#sidr').css('display')==='block'){
     jQuery.sidr('close');
   }
+
 }
+
+
