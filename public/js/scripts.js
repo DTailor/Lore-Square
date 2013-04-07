@@ -46,7 +46,7 @@ var svg = d3.select("#chart").append("svg")
     .attr("height", height + margin.bottom + margin.top)
     .style("margin-left", -margin.left + "px")
     .style("margin.right", -margin.right + "px")
-    .style("font-size", 15)
+    .style("font-size", 18)
   .append("g")
     .style("shape-rendering", "crispEdges");
 
