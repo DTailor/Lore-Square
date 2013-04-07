@@ -128,12 +128,11 @@ var transitioning = false;
 
 //if(!transitioning) 
 precG = g1;
-	
+	 
     var g = g1.selectAll("g")
         .data(d.children)
       .enter().append("g");
 	  
-
     g.filter(function(d) { return d.children; })
         .classed("children", true)
         .on("click", transition);
@@ -325,3 +324,9 @@ $(document).ready(function() {
 	});
 
 });
+
+function HideSidr(){
+  if($('#sidr').css('display')==='block'){
+    jQuery.sidr('close');
+  }
+}
