@@ -103,6 +103,17 @@
 
       request.done(function (msg) {
         console.log(msg);
+        $.each(msg, function(index, value) {
+          if (index < msg.length)
+          window.setTimeout(function(){
+            //console.log(value);
+            //console.log($("[id='"+value+"']")[0]);
+            //console.log(document.getElementById(value))
+            fireEvent(document.getElementById(value), "click");          
+            //fireEvent($("[id='"+value+"']")[0], "click");          
+          }, 1000*index);
+        }
+        );
       });
 
 
