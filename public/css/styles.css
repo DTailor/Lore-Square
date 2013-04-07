@@ -281,3 +281,15 @@ iframe{
     border-color: rgba(82, 168, 236, 0.8);
     transition: border linear 0.2s, box-shadow linear 0.2s;
 }
+
+#badge {
+    position: relative;
+    top: 35px;
+    text-align: center;
+}
+
+#badges {
+    position: relative;
+    top: 50px;
+    left: 25px;
+}

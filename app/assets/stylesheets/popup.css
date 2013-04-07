@@ -1,0 +1,107 @@
+.all-width{
+	width:400px;
+	background-color: #ccc;
+	height:auto;
+	font-family: Calibri;
+	font-size: 15px;
+	font-weight: bold;
+	margin: 0 auto;
+}
+
+.top-container{
+	height:auto;	
+	padding-bottom: 30px;
+}
+
+.top-container .caption{
+	padding-top: 15px;
+	margin-left: 30px;
+	display: block;
+	float: left;
+}
+
+.top-container .description{
+	padding-top: 15px;
+	margin-left:100px;
+	display: block;
+	float: left;
+}
+
+.top-container .progress{
+	margin-top: 10px;
+	margin-left:60px;
+	background: url("images/progress-tank.png") 0 0 no-repeat;
+	width:190px;
+	height: 26px;
+	display: inline-block;
+	float: left;
+	z-index: 5;
+}
+
+.top-container .real{
+	background: url("images/progress.png") 0 0 repeat-x;
+	height:18px;
+	z-index: 4;
+	display: inline-block;
+	max-width: 180px;
+	width: 25px;
+	margin-top: 14px;
+	margin-left: -185px;
+}
+
+.left-container{
+	width:49%;
+	height: auto;
+	display: inline-block;
+}
+
+.left-container a{
+	text-align: center;
+	text-decoration: none;
+	color: black;
+}
+
+.right-container{
+	width:49%;
+	height: auto;
+	margin: auto;
+	display: inline-block;
+}
+
+.right-container .title,
+.left-container .title{
+	text-align: center;
+	text-decoration: underline;
+	padding-bottom: 15px;
+}
+
+.right-container p{
+	font-weight: normal;
+}
+
+iframe{
+	overflow: hidden;
+	width: 190px;
+	height: 55%;
+	border: 0;
+}
+
+
+.reveal-modal {
+	visibility: hidden;
+	display: none;
+	position: absolute;
+	left: 50%;
+	z-index: 99;
+	height: auto;
+	background-color: #fff;
+	margin-left: -40%;
+	width: 80%;
+	background-color: #fff;
+	padding: 1.25em;
+	border: solid 1px #666;
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.4);
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+	top: 50px;
+}
+
