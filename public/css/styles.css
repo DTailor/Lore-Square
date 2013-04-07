@@ -100,14 +100,14 @@ img#logo{
     background:rgb(64, 91, 116);;         /* Set background color or image of current bar */
 }
 
-.search-form{
+#search-form{
     position: absolute;
     margin-top: -27px;
     margin-left: 100px;
     width: 250px;
 }
 
-.search-form input{
+#search-form input{
     color: #888888;
     font-size: 14px;
     font-family: Calibri;
@@ -123,8 +123,161 @@ img#logo{
     padding-right: 8px;
 }
 
-.search-form input:focus,
-.search-form input:hover{
+#search-form input:focus,
+#search-form input:hover{
+    border-color: rgba(82, 168, 236, 0.8);
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+.inner-content,
+.all-width{
+    width:400px;
+    background-color: #fff;
+    height:auto;
+    font-family: Calibri;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.inner-content{
+    position: absolute;
+    opacity: 1;
+    top:200px;
+    right:500px;
+    display: none;
+    z-index: 999999999;
+}
+
+.top-container{
+    height:auto;    
+    padding-bottom: 30px;
+}
+
+.top-container .caption{
+    padding-top: 15px;
+    margin-left: 30px;
+    display: block;
+    float: left;
+}
+
+.top-container .description{
+    padding-top: 15px;
+    margin-left:100px;
+    display: block;
+    float: left;
+}
+
+.top-container .progress{
+    margin-top: 10px;
+    margin-left:60px;
+    background: url("/images/progress-tank.png") 0 0 no-repeat;
+    width:190px;
+    height: 26px;
+    display: inline-block;
+    float: left;
+    z-index: 5;
+}
+
+.top-container .real{
+    background: url("/images/progress.png") 0 0 repeat-x;
+    height:18px;
+    z-index: 4;
+    display: inline-block;
+    max-width: 180px;
+    width: 25px;
+    margin-top: 14px;
+    margin-left: -185px;
+}
+
+.left-container{
+    width:49%;
+    height: auto;
+    display: inline-block;
+}
+
+.left-container a{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.right-container{
+    width:49%;
+    height: auto;
+    margin: auto;
+    display: inline-block;
+}
+
+.right-container .title,
+.left-container .title{
+    text-align: center;
+    text-decoration: underline;
+    padding-bottom: 15px;
+}
+
+.right-container p{
+    font-weight: normal;
+}
+
+iframe{
+    overflow: hidden;
+    width: 190px;
+    height: 55%;
+    border: 0;
+}
+
+.dark-overlay{
+    display: none;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 999999999;
+    width:1500px;
+    height: 1500px;
+    margin-top: -150px;
+    position: absolute;
+}
+
+
+.username{
+    display: inline-block;
+    position: absolute;
+    color: #888888;
+    font-size: 20px;
+    font-family: Calibri;
+    font-weight: bold;
+    width: 200px;
+    margin-left: 1100px;
+    margin-top: -28px;
+}
+
+#login{
+    position: absolute;
+    margin-top: -27px;
+    margin-left: 1270px;
+    width: 25px;
+}
+
+#login input{
+    color: #888888;
+    font-size: 14px;
+    font-family: Calibri;
+    font-weight: bold;
+    background-color: #414042;
+    border-radius: 10px;
+    margin-left: 0;
+    padding-left: 8px;
+    outline:none;
+    margin-bottom: 0px;
+    border-width: 1px;
+    height: 23px;
+    padding-right: 8px;
+    float: right;
+}
+
+#login input:focus,
+#login input:hover{
     border-color: rgba(82, 168, 236, 0.8);
     transition: border linear 0.2s, box-shadow linear 0.2s;
 }
