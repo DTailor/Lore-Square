@@ -60,7 +60,8 @@ img#logo{
     margin-top: -44px;
     margin-bottom: 8px;
     display: inline-block;
-    width: 100px;
+    width: 68px;
+    float: left;
 }
 
 #profile-pic{
@@ -100,6 +101,19 @@ img#logo{
 }
 
 .search-form{
-    clear: both;
-    display: inline-block;
+    position: absolute;
+    margin-top: -27px;
+    margin-left: 100px;
+}
+
+.search-form input{
+    color: #888888;
+    font-size: 14px;
+    font-family: Calibri;
+    font-weight: bold;
+    background-color: #414042;
+    border-radius: 10px;
+    margin-left: 0;
+    padding-left: 10px;
+    outline:none;
 }
