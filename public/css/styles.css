@@ -100,14 +100,14 @@ img#logo{
     background:rgb(64, 91, 116);;         /* Set background color or image of current bar */
 }
 
-.search-form{
+#search-form{
     position: absolute;
     margin-top: -27px;
     margin-left: 100px;
     width: 250px;
 }
 
-.search-form input{
+#search-form input{
     color: #888888;
     font-size: 14px;
     font-family: Calibri;
@@ -123,8 +123,8 @@ img#logo{
     padding-right: 8px;
 }
 
-.search-form input:focus,
-.search-form input:hover{
+#search-form input:focus,
+#search-form input:hover{
     border-color: rgba(82, 168, 236, 0.8);
     transition: border linear 0.2s, box-shadow linear 0.2s;
 }

@@ -135,19 +135,13 @@ precG = g1;
       .enter().append("g");
 
 
-    g.filter(function(d) {
-      var ret = (d.children) ? d.children :  d;
-       return ret;
-        })
+    g.filter(function(d) { return d; })
         .classed("children", true)
         .attr("id", "_")
         .on("click", passTransition);
 
 
-    g.filter(function(d) {
-    var ret = (d.children) ? d.children :  d;
-       return ret;
-        })
+    g.filter(function(d) { return d; })
         .classed("children", true)
         .attr("id", "_").on("click", passTransition);
 
@@ -237,21 +231,19 @@ precG = g1;
     if(this.clicked === true){
       this.clicked = false
       clearTimeout(this.timeout)
-      var dataReq = {'square' : ev.id};
+      var dataReq = "square=" + ev.id;
       var request = $.ajax({
         url: "/squares/checkin",
         type: "POST",
         data: dataReq,
-        dataType: "json"
       });
        
       request.done(function(msg) {
-          console.log(msg);
+        $("#log").html( msg );
       });
        
       request.fail(function(jqXHR, textStatus) {
-          console.log(msg);
-        // alert( "Request failed: " + textStatus );
+        alert( "Request failed: " + textStatus );
       });
       // alert(ev.id);
     }else{
@@ -267,7 +259,9 @@ precG = g1;
     }
 
     }
-
+$("#up").click(function () {
+    fireEvent(d3.select(".grandparent").node() ,"click");
+});
 
      return g;
   }//end display
@@ -325,6 +319,8 @@ precG = g1;
 $("#up").click(function () {
 		fireEvent(d3.select(".grandparent").node() ,"click");
 });
+
+
 
 function fireEvent(element,event) {
    if (document.createEvent) {
@@ -388,7 +384,3 @@ function HideSidr(){
     jQuery.sidr('close');
   }
 }
-
-
-
-
