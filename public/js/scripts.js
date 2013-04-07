@@ -235,10 +235,10 @@ precG = g1;
        
       request.fail(function(jqXHR, textStatus) {
 
-        $(".dark-overlay").css("display","block");
+        $(".dark-overlay").fadeIn(500);
         $(".inner-content").css("top",(window.outerHeight-$(".inner-content").css('height'))/2);
         $(".inner-content").css("top",(window.innerWidth-$(".inner-content").css('width'))/2);
-        $(".inner-content").css("display","block");
+        $(".inner-content").fadeIn(500);
 
       });
     }else{
