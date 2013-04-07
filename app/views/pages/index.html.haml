@@ -11,8 +11,9 @@
       #up
         %a{:href => "#sidr"}
       %form.search-form
-        %input{:name => "search", :placeholder => "Search", :type => "text"}/
-        %input{:type => "submit", :value => "Go"}/        
+        %input{:class => "search", :name => "search", :placeholder => "Search", :type => "text"}
+        %input{:class => "search-btn", :type => "submit", :value => "Go"}/
+      / %button.search-btn Search        
     #content.content-wrapper{:onclick => "HideSidr()"}
       %img#logo{:alt => "", :src => "/images/logo.png"}
       #sidr
@@ -20,10 +21,7 @@
           / = image_tag current_user.avatar.url
           %img{:src => "/images/avatar.gif"}
         #profile-name
-          - if current_user and current_user.name
-            = current_user.name
-          - else
-            = "Dan Tailor"
+          = "Dan Tailor"
         #profile-progress Overall progress
         #progress-bar{"data-bar-length" => "30"}
       #container
@@ -31,3 +29,46 @@
           #chart
     %script{:src => "/js/scripts.js", :type => "text/javascript"}
     %script{:src => "/js/jquery.simple-progress-bar.js", :type => "text/javascript"}
+
+:css
+  .searches{
+    height:100%;
+  }
+  .ui-autocomplete{
+    width:350px;
+    height:500px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+  }
+
+:javascript
+  $('.search, .checkin').autocomplete({
+    delay: 50,
+    minLength: 3,
+    source: #{@names}
+  });
+
+  $(".search-btn").click(function(){
+    var dataString = $(".search").val();
+    if($.inArray(dataString, #{@names}) != -1) {
+      var request = $.ajax({
+        type: "POST",
+        url: "/squares/search",
+        data: {"square": dataString},
+        dataType: "json"
+      });
+
+      request.done(function (msg) {
+        console.log(msg);
+      });
+
+      request.fail(function (msg) {
+        alert("Square not found.");
+      });
+    }
+    else {
+      alert("Square doesn't exist.");
+    }
+  });
+
+  
