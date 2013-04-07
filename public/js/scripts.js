@@ -129,21 +129,13 @@ var transitioning = false;
 //if(!transitioning) 
 precG = g1;
 	 
-   var is_dblclick=false;
     var g = g1.selectAll("g")
         .data(d.children)
       .enter().append("g");
-	  
-    g.filter(function(d) { return d.children; })
-          .classed("children", true)
-          .on("dblclick", function(){alert('some shit'); is_dblclick=true});
 
-          if (!is_dblclick){
     g.filter(function(d) { return d.children; })
         .classed("children", true)
-        .on("click", transition);
-}
-     
+        .on("click", transition);     
 
     g.selectAll(".child")
         .data(function(d) { return d.children || [d]; })
