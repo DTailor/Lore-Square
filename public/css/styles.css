@@ -18,7 +18,6 @@
     position: relative;
     top: 4px;
     left: 4px;
-    margin-left: 5px;
     opacity: 0.7;
     z-index: 10;
 
@@ -45,8 +44,7 @@
 img#logo{
     position: fixed;
     z-index: 99999999;
-    bottom: 10px;
-    left:10px;
+    bottom: 0;
     margin-left: 10px;
     opacity: 0.7;
 }
@@ -59,9 +57,12 @@ img#logo{
     z-index: 999999999;
     margin-top: -44px;
     margin-bottom: 8px;
+<<<<<<< HEAD
     display: inline-block;
     width: 68px;
     float: left;
+=======
+>>>>>>> 262cf0cc52d3a97150a93517213cf5d254d9474a
 }
 
 #profile-pic{
@@ -100,6 +101,7 @@ img#logo{
     background:rgb(64, 91, 116);;         /* Set background color or image of current bar */
 }
 
+<<<<<<< HEAD
 .search-form{
     position: absolute;
     margin-top: -27px;
@@ -117,3 +119,10 @@ img#logo{
     padding-left: 10px;
     outline:none;
 }
+=======
+
+
+
+
+
+>>>>>>> 262cf0cc52d3a97150a93517213cf5d254d9474a
