@@ -24,7 +24,7 @@ var headerHeight = 0;
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
     width = getScreenWidth(),
     height = window.innerHeight-47,
-    formatNumber = d3.format(",d"),
+    formatNumber = d3.format("d"),
     transitioning;
 
 var x = d3.scale.linear()
@@ -127,7 +127,7 @@ var transitioning = false;
         .datum(d)
         .attr("class", "depth");
 
-//if(!transitioning) 
+//if(!transitioning){
 precG = g1;
 	 
     var g = g1.selectAll("g")
@@ -135,23 +135,11 @@ precG = g1;
       .enter().append("g");
 
 
-    g.filter(function(d) {
-      var ret = (d.children) ? d.children :  d;
-       return ret;
-        })
+
+    g.filter(function(d) { return d;})
         .classed("children", true)
         .attr("id", "_")
         .on("click", passTransition);
-
-
-    g.filter(function(d) {
-    var ret = (d.children) ? d.children :  d;
-       return ret;
-        })
-        .classed("children", true)
-        .attr("id", "_").on("click", passTransition);
-
-
 
     g.selectAll(".child")
         .data(function(d) { return [d] || [d]; })//return d.children || [d]; 
@@ -185,9 +173,11 @@ precG = g1;
 		
 		function transition(d) {
       // console.log(d);
+    if(d.children){
 			dates = d;
 			thiz = this;
 			  if (transitioning || !d) return;
+
 			  transitioning = true;
 		
 			  var g2 = display(d),
@@ -222,13 +212,14 @@ precG = g1;
 			  // Remove the old node when the transition is finished.
 			  t1.remove().each("end", function() {
 
-				svg.style("shape-rendering", "crispEdges");
-				transitioning = false;
-				
-			
-				OnEnd(t2[0][0].node);
+  				svg.style("shape-rendering", "crispEdges");
+  				transitioning = false;
+
 			  });
-			}//end transition
+      }else{
+        return 0;
+      }
+	}//end transition
 
 
     function passTransition(ev){
@@ -273,8 +264,6 @@ precG = g1;
   }//end display
 
 
-
-
   	function text(text) {
     	text.attr("x", function(d) { return x(d.x) + 10; })
         	.attr("y", function(d) { return y(d.y) + 10; });
@@ -292,38 +281,19 @@ precG = g1;
   	}
 
 	function name(d) {
-		return d.parent
-			? name(d.parent) + "." + d.name
-			: d.name;
+    if(d.name !== 'Join algorithms'){
+      return d.parent
+      ? name(d.parent) + "." + d.name
+      : d.name;
+    }else{
+      return name(d.parent);
+    }
 	}
-
-	function toArray(obj) {
-	  var array = [];
-	  for (var i = obj.length >>> 0; i--;) { 
-		array[i] = obj[i];
-	  }
-	  return array;
-	}
-	
-	function filterFunction(element, index, array)
-	{
-		return element.textContent == "Information systedf";
-	}
-	
-	function OnEnd(d){
-		//d -> g.depth
-		var elem = d.childNodes;
-		var filtered = toArray(d.childNodes).filter(filterFunction);
-		//console.log(filtered.length);
-		
-		if(filtered.length > 0)
-			fireEvent(filtered[0].parentNode, "click");			
-	}
-	
 
 
 $("#up").click(function () {
-		fireEvent(d3.select(".grandparent").node() ,"click");
+    console.log(d3.select(".grandparent").node());
+    fireEvent(d3.select(".grandparent").node() ,"click");
 });
 
 function fireEvent(element,event) {
@@ -340,40 +310,6 @@ function fireEvent(element,event) {
 }
   
 
-var $chart = $('#chart');
-var $svg = $("svg");
-
-var cursorStartY, svgStartTop;
-var cursorStartX, svgStartLeft;
-
-
-$chart
-		.on('mouseenter', function(e){
-			
-			$(this).on('mousedown',function(e){
-											
-				/*Drag start*/
-				cursorStartY = e.clientY + window.scrollY;
-				cursorStartX = e.clientX + window.scrollX;
-				
-				if(!svgStartLeft) svgStartLeft = 0;
-				if(!svgStartTop) svgStartTop = 0;
-				
-
-				return false;
-			})
-		})
-		.on('mouseleave', function(){
-			$(window).off('mousemove');
-			$("rect").css('cursor',"");	
-			$svg.css('transform','translate(0px, 0px)');
-			$svg.css('transition','transform 1s ease');
-
-									   
-			return false;	
-		})
-
-;
 $(document).ready(function() {
   $('#detailed-view').sidr({'speed':500,'body':"div#content"});
 
@@ -388,7 +324,3 @@ function HideSidr(){
     jQuery.sidr('close');
   }
 }
-
-
-
-
