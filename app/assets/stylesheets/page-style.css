@@ -9,87 +9,14 @@ body {
   color: #4D4D4D
 }
 
-#header{
-	width: 100%;
-	background: url('../images/header.png') top left repeat-x;
-	height: 52px;
-	left: 0;
-	position: fixed;
-	top: 0;
-	z-index: 314159265;
-}
-#searchform{
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #0061B4;
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 0 0 2px 0 #FFFFFF;
-    float: left;
-    margin-top: 5px;
-    padding: 3px 5px;
-    width: 359px;
-}
 
-
-#searchform form {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: transparent;
-    background-image: url("../images/searchLogo.png");
-    background-origin: padding-box;
-    background-position: 2px 12px;
-    background-repeat: no-repeat;
-    background-size: 18px auto;
-    float: left;
-    padding-left: 20px;
-}
-
-#header #search{
-	float: left;
-	position: relative;
-}
-
-#header input[type="text"]{
-	background: none repeat scroll 0 0 transparent;
-    border: medium none;
-    box-shadow: none;
-    margin-top: 2px;
-    outline: medium none;
-    padding: 10px 5px;
-    position: relative;
-    width: 146px;
-}
-
-#header #exploreheader #logo {
-    background: url("../images/logo2.png") no-repeat scroll center transparent;
-    display: block;
-    height: 40px;
-    margin: 5px 5px 0 20px;
-    text-indent: -1111px;
-    width: 101px;
-	float: left;
-}
-#header #exploreheader #logo {
-    margin: 10px;
-}
-
-#exploreheader{
-    width: 500px;
-	height: 60px;
-	border: none;
-	margin-left: 20px;
-	float: left;
-	background: url("../images/explore_header.PNG") repeat-x scroll left top transparent;
-	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
-}
 #container{
 	background: none repeat scroll 0 0 #FFFFFF;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 2;
-	top: 53px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
 	border: medium none;
-    min-width: 960px;
-    width: 100%;
+  min-width: 960px;
+  width: 100%;
 }
 
 #lsInfoView{
@@ -169,8 +96,8 @@ li.conceptCard{
 	border: none;
 	background-color: rgba(0,0,0,0.3);
 	z-index:400;
-	width: 60px;
-	height: 60px;
+	width: 30px;
+	height: 30px;
 	cursor: pointer;
 }
 #up{
