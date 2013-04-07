@@ -138,13 +138,13 @@ precG = g1;
     g.filter(function(d) { return d.children; })
         .classed("children", true)
         .attr("id", "_")
-        .on("click", transition);
+        .on("click", passTransition);
 
-	  
 
-    var hz = g.filter(function(d) { return d.children; })
+    g.filter(function(d) { return d.children; })
         .classed("children", true)
-        .attr("id", "_").on("click", transition);
+        .attr("id", "_").on("click", passTransition);
+
 
 
     g.selectAll(".child")
@@ -178,6 +178,7 @@ precG = g1;
 
 		
 		function transition(d) {
+      console.log(d);
 			dates = d;
 			thiz = this;
 			  if (transitioning || !d) return;
@@ -222,8 +223,34 @@ precG = g1;
 				OnEnd(t2[0][0].node);
 			  });
 			}//end transition
+
+
+    function passTransition(ev){
+      console.log(ev);
+
+    if(this.clicked === true){
+      this.clicked = false
+      clearTimeout(this.timeout)
+      alert(ev.id);
+    }else{
+      this.clicked = true
+      var that = this
+
+      this.timeout = setTimeout(function () {
+        that.clicked = false
+        // $(that).trigger('clicked')
+        transition(ev);
+        // alert('clicked');
+      }, 200)      
+    }
+
+    }
+
+
      return g;
   }//end display
+
+
 
 
   	function text(text) {
