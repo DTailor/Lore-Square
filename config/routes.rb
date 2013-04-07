@@ -10,9 +10,7 @@ LoreSquare::Application.routes.draw do
   end
 
   namespace :pages do
-    root :to => "pages#index"
-    get 'index' => :index
-    get 'acm_json' => :acm_json
+    root :to => "pages#test"
     get 'test' => :test
     get 'acm' => :acm
 
