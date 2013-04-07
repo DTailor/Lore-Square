@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   def index
     @squares = Square.all
     @names = @squares.map{|s| s.name}
+    @rank = current_user.rank if current_user
   end
 
   def acm

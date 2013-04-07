@@ -4,14 +4,16 @@
   %body
     .topBar
     .button-wrapper
-      %a{:href => "#", :onclick => "return "}
       #detailed-view
         %a{:href => "#", :onclick => "return "}
       #up
         %a{:href => "#sidr"}
-      %form.search-form
-        %input{:class => "search", :name => "search", :placeholder => "Search", :type => "text"}
-        %input{:class => "search-btn", :value => "Go", :type => "Submit"}
+      %form#search-form
+        %input#searchBy{:name => "search", :placeholder => "Search", :type => "text"}
+          %input{:class => "search-btn", :value => "Go", :type => "Submit"}
+      .username Danny Tailor
+      %form#login{:action => ""}
+        %input{:type => "submit", :value => "Log XXX"}
     #content.content-wrapper{:onclick => "HideSidr()"}
       %img#logo{:alt => "", :src => "/images/logo.png"}
       #sidr
@@ -24,9 +26,52 @@
             = "Dan Tailor"
         #profile-progress Overall progress
         #progress-bar{"data-bar-length" => "30"}
+        #badge User Rank
+        #badges
+          - if current_user
+            %img{:src => "/images/#{current_user.rank}.png"}
+          - else
+            %img{:src => "/images/private.png"}
       #container
         #lsView
           #chart
+    .dark-overlay
+    .inner-content
+      .all-width
+        .top-container
+          %span.caption Node Name:
+          %span.description Lorem Ipsum Tile
+          %div{:style => "clear:both;"}
+          %span.caption Your Progress
+          %span.progress
+          %span.real
+          %div{:style => "clear:both;"}
+        .left-container
+          .title Suggested Articles
+          %ul
+            %li
+              %a{:href => "#"} Article #1
+            %li
+              %a{:href => "#"} Article #2
+            %li
+              %a{:href => "#"} Article #3
+            %li
+              %a{:href => "#"} Article #4
+            %li
+              %a{:href => "#"} Article #5
+            %li
+              %a{:href => "#"} Article #6
+            %li
+              %a{:href => "#"} Article #7
+            %li
+              %a{:href => "#"} Article #8
+            %li
+              %a{:href => "#"} Article #9
+            %li
+              %a{:href => "#"} Article #10
+        .right-container
+          .title Lorem Ipsum Title
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies venenatis sapien nec molestie. Maecenas orci est, laoreet id congue ac, sodales id ipsum. In semper orci id justo ultricies sodales. Fusce mattis nisl a libero tristique non iaculis massa eleifend.
     %script{:src => "/js/scripts.js", :type => "text/javascript"}
     %script{:src => "/js/jquery.simple-progress-bar.js", :type => "text/javascript"}
 
