@@ -135,13 +135,13 @@ precG = g1;
       .enter().append("g");
 
 
-    g.filter(function(d) { return d.children; })
+    g.filter(function(d) { return d; })
         .classed("children", true)
         .attr("id", "_")
         .on("click", passTransition);
 
 
-    g.filter(function(d) { return d.children; })
+    g.filter(function(d) { return d; })
         .classed("children", true)
         .attr("id", "_").on("click", passTransition);
 
