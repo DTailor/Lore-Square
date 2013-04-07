@@ -134,12 +134,10 @@ precG = g1;
 
 
 
-
     g.filter(function(d) { return d;})
         .classed("children", true)
         .attr("id", "_")
         .on("click", passTransition);
-
 
     g.selectAll(".child")
         .data(function(d) { return [d] || [d]; })//return d.children || [d]; 
@@ -237,11 +235,11 @@ precG = g1;
        
       request.fail(function(jqXHR, textStatus) {
 
-        alert( "Request failed: " + textStatus );
         $(".dark-overlay").css("display","block");
         $(".inner-content").css("top",(window.outerHeight-$(".inner-content").css('height'))/2);
         $(".inner-content").css("top",(window.innerWidth-$(".inner-content").css('width'))/2);
         $(".inner-content").css("display","block");
+
       });
     }else{
       this.clicked = true
@@ -290,7 +288,6 @@ $("#up").click(function () {
 
 
 $("#up").click(function () {
-    console.log(d3.select(".grandparent").node());
     fireEvent(d3.select(".grandparent").node() ,"click");
 });
 
@@ -326,7 +323,5 @@ function HideSidr(){
   if($('#sidr').css('display')==='block'){
     jQuery.sidr('close');
   }
-
 }
-
 
