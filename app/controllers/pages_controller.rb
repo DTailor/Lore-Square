@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   def test
     @squares = Square.all
     @names = @squares.map{|s| s.name}
+    @names_id = @squares.map{|s| [s.id, s.name]}
   end
 
   def index

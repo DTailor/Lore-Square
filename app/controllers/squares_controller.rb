@@ -7,7 +7,8 @@ class SquaresController < ApplicationController
 
   def search
     result_array = Square.search_ids(params[:square])
-    render :json => result_array, :layout => false
+    result_names = result_array.map{|s| Square.find(s).name}
+    render :json => result_names, :layout => false
   end
 
   def checkin
