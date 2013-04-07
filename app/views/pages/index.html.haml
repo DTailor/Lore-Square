@@ -102,14 +102,7 @@
       });
 
       request.done(function (msg) {
-        $.each(msg, function(index,value){
-
-        var arr = value.split(" ");
-        
-        $(arr.map(function(val){
-          return '#'+val;
-        }).join(""));
-        });
+        console.log(msg);
       });
 
 
