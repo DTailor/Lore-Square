@@ -151,7 +151,6 @@ precG = g1;
     g.append("rect")
         .attr("class", "parent")
         .call(rect)
-        .attr("id",function(d) { return d.name; })
       .append("title")
         .text(function(d) { return formatNumber(1); });
 
@@ -238,7 +237,7 @@ precG = g1;
 
         $(".dark-overlay").fadeIn(500);
         $(".inner-content").css("top",(window.outerHeight-$(".inner-content").css('height'))/2);
-        $(".inner-content").css("top",(window.innerWidth-$(".inner-content").css('width'))/2);
+        $(".inner-content").css("right",(window.innerWidth-$(".inner-content").css('width'))/2);
         $(".inner-content").fadeIn(500);
 
       });
