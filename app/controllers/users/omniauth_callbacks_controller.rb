@@ -8,7 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["facebook_login"] = true
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 end
